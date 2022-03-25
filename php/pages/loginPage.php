@@ -6,7 +6,7 @@
     </head>
 </html>
 <body>
-    <?php include './../templates/navbar.php' ?>
+    <?php require './../templates/navbar.php' ?>
     <div id = 'container'>
         <div>
             <form action="../auth/login.php" method = 'post'>
