@@ -1,0 +1,19 @@
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container-navbar {
+    background-color: burlywood;
+    display: flex;
+    flex-direction: row;
+}
+
+#container{
+    display: flex;
+    justify-content:center
+}
+
+.form-elem {
+    margin: 10px;
+}
