@@ -1,7 +1,7 @@
 <?php
 
     // include classes, utilities for DB
-    require_once './../backendLogic/dbUtilities.php';
+    require_once './../backendLogic/dbConnections.php';
 
 
     // get input values 
@@ -10,8 +10,11 @@
     $password = $_POST['password'];
 
     // connesione al db 
-
-        // redirect all'homepage 
+    $conn = new dbManager;
+    $result = $conn->dbConnection->openConnection();
+    echo $result
+    
+    // redirect all'homepage 
     
         // errrore
 ?>
