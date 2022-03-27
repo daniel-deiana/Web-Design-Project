@@ -1,4 +1,3 @@
 <?php 
     // faccio redirect sull'homepage del sito
-    header ('location: . /php/pages/homePage.php');
-?>
+    header ('location: ./php/pages/homePage.php');
