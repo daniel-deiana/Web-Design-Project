@@ -10,9 +10,9 @@ class dbManager
 
         global $hostname;
         global $dbPassword;
-        global $dbName;
+        global $dbUsername;
 
-        $this->dbConnection = new mysqli($hostname, $dbPassword, $dbName);
+        $this->dbConnection = new mysqli($hostname, $dbUsername, $dbPassword);
 
         if ($this->dbConnection->connect_error) {
             die("Connection failed: " . $this->dbConnection->connect_error);
@@ -20,3 +20,4 @@ class dbManager
         echo "Connected successfully";
     }
 }
+?>
