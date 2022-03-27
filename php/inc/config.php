@@ -2,5 +2,6 @@
 
     $hostname = 'localhost';
     $dbPassword = '';
-    $dbName = 'WebPharma'
+    $dbName = 'WebPharma';
+    $dbUsername  = 'root';
 ?>
