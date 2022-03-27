@@ -10,9 +10,15 @@
     // connesione al db 
     $conn = new dbManager;
     $result = $conn->openConnection();
-    echo $result
+    echo $result;
     
     // redirect all'homepage 
     
         // errrore
+
+    
+    // funzione che si occupa di gestire la logica per la procedura di login
+    function loginCheck($username, $password) {
+
+    }
 ?>
