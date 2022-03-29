@@ -12,6 +12,7 @@ input {
     background-color: burlywood;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 #signup{
