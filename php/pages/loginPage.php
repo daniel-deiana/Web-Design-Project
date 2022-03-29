@@ -3,7 +3,7 @@
 
 <head>
     <title>Login</title>
-    <link rel='stylesheet' href='../../css/global.css'>
+    <link rel='stylesheet' href='./../../css/global.css'>
 </head>
 
 <body>
