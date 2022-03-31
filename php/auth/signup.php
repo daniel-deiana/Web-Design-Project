@@ -1,5 +1,4 @@
 <?php
-
     // registration logic for the web app 
 
     require_once './../backendLogic/dbConnections.php';
@@ -11,6 +10,6 @@
     $email = $_POST['email'];
     $telefono = $_POST['telefono'];
 
-    // checks 
     
+    signupCheckUsername($username);
 ?>
