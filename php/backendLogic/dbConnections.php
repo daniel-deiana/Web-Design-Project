@@ -29,8 +29,6 @@
             // seleziono il mio db
             $this->dbConnection->select_db($dbName) or die('Error selecting db');
             $this->dbConnection->set_charset("utf-8");
-
-            echo "Connected successfully";
         }
 
         // check if connection exists
