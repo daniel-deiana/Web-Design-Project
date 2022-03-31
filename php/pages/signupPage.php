@@ -15,7 +15,7 @@
             <h4>e-mail</h4>
             <input type='text' placeholder='e-mail' name='email'>
             <h4>telefono</h4>
-            <input type='text' placeholder='telefono' name='email'>
+            <input type='text' placeholder='telefono' name='telefono'>
             <h4>Password</h4>
             <input type='password' placeholder='Password' name='password'>
             <h4>Verifica Password</h4>
