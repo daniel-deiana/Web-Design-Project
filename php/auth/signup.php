@@ -3,10 +3,9 @@
 
     require_once './../backendLogic/dbConnections.php';
     require_once './../backendLogic/queryManager.php';
-    global $dbConn;
         
     // controlla se l'utente sia gia registrato
-    if (!signupCheckUsername()) {    
+    if (!signupChecker()) {    
         // stampo la pagina di user gia esistente ed esco
         echo 'L\'utente è gia registrato';
         exit;
@@ -15,25 +14,30 @@
     // Controllo validità valori passati nel form
     if (signupFormChecker()) {
 
-        $passHash = password_hash($_POST['password'],'PASSWORD_DEFAULT');
+        
+        $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         // Inserisco l'utente sul db
-        $queryText = "  INSERT INTO utente(username,hashvalue,email,telefono) 
-                        VALUES({$_POST['username']},{$_POST['password']},{$_POST['email']},{$_POST['telefono']}); 
+        $text = "  INSERT INTO utente(username,hashvalue,email,telefono) 
+                        VALUES('{$_POST['username']}','$hash','{$_POST['email']}','{$_POST['telefono']}'); 
                     ";
-
-        $queryResult = $dbConn->executeQuery($queryText);
+        
+        $result = $dbConn->executeQuery($text);
         $dbConn->close();
-
+        
+        if ($result == true)
+            echo 'successo';
+        else
+            echo 'qualcosa è andato storto';
     }
     else {
 
         // valori del form non corretti
     }
 
-    function signupCheckUsername() {        
-        global $dbConn;
+    function signupChecker() {
 
+        global $dbConn;
         // this function queries the db and checks if the username passed is already existing     
         
         $queryText =    "   SELECT username 
