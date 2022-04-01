@@ -31,4 +31,5 @@ input {
 
 .form-elem {
     margin: 10px;
+    border-radius: 100px;
 }
