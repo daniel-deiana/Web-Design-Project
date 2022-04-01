@@ -5,11 +5,9 @@
     require_once './../backendLogic/queryManager.php';
     
     if (loginChecker()) 
-        header('location: ./../pages/homePage.php');
-    else {
-        echo 'errore login';
-        exit;
-    }
+        return header('location: ./../pages/homePage.php');
+    
+    return header('location: ./../pages/loginPage.php');
 
     
     function loginChecker() {
@@ -34,6 +32,7 @@
             
             // user session setup 
             session_start();
+            $_SESSION['username'] = $_POST['username'];
             return true;
         }
         else 
