@@ -9,8 +9,19 @@
     }
 
     //funzione che istanzia una sessione per un utente
-    function setupSession() {
-        
-    }
+    function setupSession() {}
 
+    function getMeds($firstId) {
+        global $dbConn;
+
+        $queryText = "  SELECT F.*
+                        FROM farmaco F
+                        WHERE F.id > {$firstId};
+                    ";
+        
+        $queryResult = $dbConn->executeQuery($queryText);
+        $dbConn->close();
+        
+        return SQLconvertObject($queryResult);
+    }
 ?>  
