@@ -2,14 +2,17 @@
 
     require_once './queryManager.php';
 
+    session_start();
+    
+    /* 
     if(!$_SESSION['username']){
         // utente non loggato non puo richiedere questo contenuto
         echo 'PERMESSO NEGATO';
         exit;
-    }
+    } 
+    */
 
-    $startID = $_GET['startID'];
-    $result = getMeds($startID);
-
+    $result = getMeds($_GET['startID']);
+    
     return json_encode($result);
 ?>

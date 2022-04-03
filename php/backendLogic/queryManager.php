@@ -11,12 +11,12 @@
     //funzione che istanzia una sessione per un utente
     function setupSession() {}
 
-    function getMeds($firstId) {
+    function getMeds($firstID) {
         global $dbConn;
 
         $queryText = "  SELECT F.*
                         FROM farmaco F
-                        WHERE F.id > {$firstId};
+                        WHERE F.id > {$firstID};
                     ";
         
         $queryResult = $dbConn->executeQuery($queryText);
