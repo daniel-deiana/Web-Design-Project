@@ -7,17 +7,16 @@ function requestMeds(startID) {
     var xhttp;
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = () => {
-        if (xhttp.readyState == DONE && xhttp.status == 200) {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
             // richiesta pronta ed andata a buon fine 
-            arrMeds = JSON.parse(xhttp.responseText);
+            arrMeds = xhttp.responseText
+            console.log(arrMeds)
             drawMeds(arrMeds);
         }
-
     };
 
     xhttp.open("GET", "./../php/backendLogic/getMeds.php?startID=" + startID, true);
     xhttp.send();
-
 }
 
 function drawMeds(arrMeds) {

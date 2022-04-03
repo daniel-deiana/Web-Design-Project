@@ -11,7 +11,7 @@
 <body id='container'>
     <?php require './../templates/navbar.php' ?>
     <div id='container-med'>
-        <script src = './../../js/showMeds.js'>requestMeds(0);</script>
+        <script src = './../../js/showMeds.js'>requestMeds(0)</script>
     </div>
 </body>
 
