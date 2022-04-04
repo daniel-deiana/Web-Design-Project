@@ -1,6 +1,7 @@
 <?php
 
-    require_once './queryManager.php';
+
+    require('./queryManager.php');
 
     session_start();
     
@@ -14,5 +15,5 @@
 
     $result = getMeds($_GET['startID']);
     
-    return json_encode($result);
+    echo json_encode($result);
 ?>

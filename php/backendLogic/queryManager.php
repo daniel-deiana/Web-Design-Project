@@ -14,6 +14,7 @@
     function getMeds($firstID) {
         global $dbConn;
 
+        // debug
         $queryText = "  SELECT F.nome
                         FROM farmaco F
                         WHERE F.id > {$firstID};
@@ -21,7 +22,7 @@
         
         $queryResult = $dbConn->executeQuery($queryText);
         $dbConn->close();
-        
+
         return SQLconvertObject($queryResult);
     }
 ?>  

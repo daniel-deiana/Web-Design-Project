@@ -12,6 +12,7 @@
             $this->openConnection();
         }
 
+        // connesione al db
         function openConnection()
         {
 
@@ -31,7 +32,7 @@
             $this->dbConnection->set_charset("utf-8");
         }
 
-        // check if connection exists
+        // controlla se vi è una connesione gia attiva
         function isAlive() {
             return ($this->dbConnection != null);
         }
@@ -45,7 +46,7 @@
             return $this->dbConnection->query($queryText);
         }
 
-        // close connection with db
+        // se la connessione è attiva, viene chiusa
         function close() {
             if($this->dbConnection != null) {
                 $this->dbConnection->close();
