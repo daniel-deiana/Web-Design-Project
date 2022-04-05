@@ -13,7 +13,10 @@ function requestMeds(startID) {
             drawMeds(arrMeds);
         }
     };
-    xhttp.open("GET", "./../php/backendLogic/getMeds.php?startID=" + startID, true);
+
+    url = "./../php/backendLogic/getMeds.php?startID=" + startID;
+    console.log(url)
+    xhttp.open("GET", url, true);
     xhttp.send();
 }
 
