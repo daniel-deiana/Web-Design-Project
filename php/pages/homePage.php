@@ -10,10 +10,11 @@
 
 <body id='container'>
     <?php require './../templates/navbar.php' ?>
-    <div id='container-med'></div>
-    <script>
-        requestMeds(0);
-    </script>
+    <div id='container-med'>
+        <script>
+            requestMeds(0);
+        </script>
+    </div>
 </body>
 
 </html>
