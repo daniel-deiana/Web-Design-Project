@@ -7,9 +7,8 @@ function requestMeds(startID) {
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             // richiesta pronta ed andata a buon fine 
-
             //prima chiedo di caricare l'immagine e poi carico tuttto il contenuto
-            drawMeds(JSON.parse(xhttp.responseText),);
+            drawMeds(JSON.parse(xhttp.responseText));
         }
     };
 
@@ -19,7 +18,6 @@ function requestMeds(startID) {
 }
 
 function drawMeds(arrMeds) {
-
     // prende in ingresso l'array di oggetti json
 
     console.log(arrMeds);
@@ -34,12 +32,32 @@ function drawMeds(arrMeds) {
         // costruisco il sotto albero del div
         let pMed = document.createElement('p');
         pMed.textContent = arrMeds[i].nome;
-
         divMed.appendChild(pMed);
-
+        
+        // richiedo l'immagine del medicinale 
+        let image = document.createElement('img')
+        loadImage(arrMeds[i].nome, image)
+        image.height = image.width = 150;
+        divMed.appendChild(image);
+        
         // aggiungo il div del farmaco alla pagina
         containerElem.appendChild(divMed);
     }
 }
 
 
+function loadImage(name,image) {
+    // esegue una richiesta asincrona per un immagine relativa al nome del farmaco passato in ingresso
+
+    let xhttp = new XMLHttpRequest;
+    xhttp.onreadystatechange = () => {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            // richiesta andata a buon fine, ritorno il binary dell'immagine
+            image.setAttribute('src', "data:image/jpg;base64," + xhttp.responseText);
+        }
+    }
+    xhttp.open("POST", "./../backendLogic/getMedImage.php?name=" +name, true);
+    xhttp.send();
+
+
+};

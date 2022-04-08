@@ -30,10 +30,11 @@
         global $dbConn;
 
         //   prima prendo il nome dell'immagine e poi lo vado a prendere nel file system del server
-        
+
         $queryText = "  SELECT F.image_path
-                        FROM farmaco F 
-                        WHERE F.nome = {$name};
+                        FROM farmaco F
+                        WHERE F.nome = \"{$name}\"
+                        LIMIT 1;
                     ";
         /* 
             ATTENZIONE: I file si trovano nella directory img dentro la directory "WebPharma", nel 
@@ -43,9 +44,10 @@
         $queryResult = $dbConn->executeQuery($queryText);
         $dbConn->close();
 
+        $arr_result = SQLconvertObject($queryResult);
+
         // prendo l'immagine e la codifico in un formato standard
-        $rawImage = file_get_contents($queryResult);
+        $rawImage = file_get_contents($arr_result[0]['image_path']);
         return base64_encode($rawImage);
-        
+    
     }
-?>  

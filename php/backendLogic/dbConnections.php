@@ -43,6 +43,7 @@
                 $this->openConnection();
             }
             
+            
             return $this->dbConnection->query($queryText);
         }
 

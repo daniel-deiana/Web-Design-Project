@@ -7,8 +7,8 @@
     
     require("./queryManager.php");
 
-    $imageName = $_POST['name'];
+    $imageName = $_GET['name'];
     $encodedImage = getMedImage($imageName);
-
+    
     echo $encodedImage;
 ?>
