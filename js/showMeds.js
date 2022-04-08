@@ -7,12 +7,14 @@ function requestMeds(startID) {
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             // richiesta pronta ed andata a buon fine 
-            drawMeds(JSON.parse(xhttp.responseText));
+
+            //prima chiedo di caricare l'immagine e poi carico tuttto il contenuto
+            drawMeds(JSON.parse(xhttp.responseText),);
         }
     };
 
     // invio la richiesta al server 
-    xhttp.open("GET", "./../backendLogic/getMeds.php?startID=" + startID, true);
+    xhttp.open("GET", "./../backendLogic/getMeds.php?startID="+startID, true);
     xhttp.send();
 }
 
@@ -27,12 +29,11 @@ function drawMeds(arrMeds) {
 
         // creo il div che contiene la card del farmaco
         let divMed = document.createElement('div');
+        divMed.className = 'card-med';
 
         // costruisco il sotto albero del div
         let pMed = document.createElement('p');
         pMed.textContent = arrMeds[i].nome;
-
-        divMed.className = 'elem-med';
 
         divMed.appendChild(pMed);
 

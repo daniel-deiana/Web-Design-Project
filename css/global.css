@@ -33,3 +33,27 @@ input {
     margin: 10px;
     border-radius: 100px;
 }
+
+.card-med {
+    
+    /*proprietà posizioni*/
+    position: relative;
+    
+    margin: 1%;
+    height: 300px;
+    width: 200px;
+
+    border-radius: 25px;
+    box-shadow: 1px 2px 5px 5px  #d3d2d2;
+
+    /*proprietà flexbox*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-med:hover {
+    margin-top: 20px;
+    transition: 2s;
+}

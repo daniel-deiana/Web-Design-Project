@@ -25,4 +25,27 @@
 
         return SQLconvertObject($queryResult);
     }
+
+    function getMedImage($name){
+        global $dbConn;
+
+        //   prima prendo il nome dell'immagine e poi lo vado a prendere nel file system del server
+        
+        $queryText = "  SELECT F.image_path
+                        FROM farmaco F 
+                        WHERE F.nome = {$name};
+                    ";
+        /* 
+            ATTENZIONE: I file si trovano nella directory img dentro la directory "WebPharma", nel 
+            db vengono salvati usanndo un path relativo rispetto alla cartella del progetto
+        */
+
+        $queryResult = $dbConn->executeQuery($queryText);
+        $dbConn->close();
+
+        // prendo l'immagine e la codifico in un formato standard
+        $rawImage = file_get_contents($queryResult);
+        return base64_encode($rawImage);
+        
+    }
 ?>  
