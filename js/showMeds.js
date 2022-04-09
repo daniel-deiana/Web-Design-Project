@@ -45,8 +45,7 @@ function drawMeds(arrMeds) {
     }
 }
 
-
-function loadImage(name,image) {
+function loadImage(name, image) {
     // esegue una richiesta asincrona per un immagine relativa al nome del farmaco passato in ingresso
 
     let xhttp = new XMLHttpRequest;
@@ -56,8 +55,6 @@ function loadImage(name,image) {
             image.setAttribute('src', "data:image/jpg;base64," + xhttp.responseText);
         }
     }
-    xhttp.open("POST", "./../backendLogic/getMedImage.php?name=" +name, true);
+    xhttp.open("POST", "./../backendLogic/getMedImage.php?name=" + name, true);
     xhttp.send();
-
-
 };

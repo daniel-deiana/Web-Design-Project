@@ -3,8 +3,7 @@
 
 <head>
     <title>WebPharma</title>
-    <link rel='stylesheet' href='./../../css/global.css'>
-    </link>
+    <link rel='stylesheet' href='./../../css/global.css'></link>
     <script src='./../../js/showMeds.js'></script>
 </head>
 
