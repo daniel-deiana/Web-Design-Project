@@ -10,9 +10,9 @@
     <?php require './../templates/navbar.php' ?>
     <div id='login'>
         <form action="./../auth/login.php" method='post' id='login'>
-            <input class='form-elem' type="text" name='username' placeholder="username">
-            <input class='form-elem' type="text" name='password' placeholder="password">
-            <input class='form-elem' type="submit" value="submit">
+            <input class='box-form' type="text" name='username' placeholder="username">
+            <input class='box-form' type="text" name='password' placeholder="password">
+            <input class='box-form' type="submit" value="submit">
         </form>
     </div>
 </body>
