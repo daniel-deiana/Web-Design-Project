@@ -8,10 +8,15 @@ input {
     margin-top: 10px;
 }
 
-p {
-    font-size: large;
+a:visited{
+    text-decoration: none;
+    color: black;
 }
 
+p {
+    font-size: large;
+    display: inline-block;
+}
 
 #container-page{
     display: flex;

@@ -1,5 +1,7 @@
 <header id='container-navbar'>
-    <p id='nav-title'>Web Pharma</p>
+    <a href='./../pages/homePage.php'>
+        <p id='nav-title'>Web Pharma</p>
+    </a>
     <div id='cont-buttons'>
         <?php
 

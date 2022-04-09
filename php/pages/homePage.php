@@ -9,15 +9,16 @@
 </head>
 
 <body>
-    <div id = 'container-page'>
+    <div id='container-page'>
         <?php require './../templates/navbar.php' ?>
         <div id='container-main'>
             <?php require './../templates/leftBar.php' ?>
-            <div id='container-med'>
-                <script>
-                    requestMeds(0);
-                </script>
-            </div>
+            <?php
+
+                if (isset($_SESSION['username']))
+                    require './../templates/medSection.php'
+            
+            ?>
             <?php require './../templates/rightBar.php' ?>
         </div>
     </div>
