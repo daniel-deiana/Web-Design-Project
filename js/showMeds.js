@@ -39,7 +39,7 @@ function drawMeds(arrMeds) {
         loadImage(arrMeds[i].nome, image)
         image.height = image.width = 150;
         divMed.appendChild(image);
-        
+
         // aggiungo il div del farmaco alla pagina
         containerElem.appendChild(divMed);
     }

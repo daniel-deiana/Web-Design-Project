@@ -8,16 +8,18 @@
     <script src='./../../js/showMeds.js'></script>
 </head>
 
-<body id='container'>
-    <?php require './../templates/navbar.php' ?>
-    <div id='container-main'>
-        <?php require './../templates/leftBar.php' ?>
-        <div id='container-med'>
-            <script>
-                requestMeds(0);
-            </script>
+<body>
+    <div id = 'container-page'>
+        <?php require './../templates/navbar.php' ?>
+        <div id='container-main'>
+            <?php require './../templates/leftBar.php' ?>
+            <div id='container-med'>
+                <script>
+                    requestMeds(0);
+                </script>
+            </div>
+            <?php require './../templates/rightBar.php' ?>
         </div>
-        <?php require './../templates/rightBar.php' ?>
     </div>
 </body>
 

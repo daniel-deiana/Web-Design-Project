@@ -7,21 +7,27 @@
 </head>
 
 <body>
-    <?php require './../templates/navbar.php' ?>
-    <div id='signup'>
-        <form action="./../auth/signup.php" method='post' id='signup'>
-            <h4>Username</h4>
-            <input type='text' placeholder='username' name='username'>
-            <h4>e-mail</h4>
-            <input type='text' placeholder='e-mail' name='email'>
-            <h4>telefono</h4>
-            <input type='text' placeholder='telefono' name='telefono'>
-            <h4>Password</h4>
-            <input type='password' placeholder='Password' name='password'>
-            <h4>Verifica Password</h4>
-            <input type='password' placeholder='Verifica Password' name='checkPassword'>
-            <input type='submit' name='registrati'>
-        </form>
+    <div id='container-page'>
+        <?php require './../templates/navbar.php' ?>
+        <div id='container-main'>
+            <?php require './../templates/leftBar.php' ?>
+            <div class='container-form'>
+                <form action="./../auth/signup.php" method='post' id='signup'>
+                    <p>Username</p>
+                    <input type='text' placeholder='username' name='username'>
+                    <p>e-mail</p>
+                    <input type='text' placeholder='e-mail' name='email'>
+                    <p>telefono</p>
+                    <input type='text' placeholder='telefono' name='telefono'>
+                    <p>Password</p>
+                    <input type='password' placeholder='Password' name='password'>
+                    <p>Verifica Password</p>
+                    <input type='password' placeholder='Verifica Password' name='checkPassword'>
+                    <input type='submit' name='registrati'>
+                </form>
+            </div>
+            <?php require './../templates/rightBar.php' ?>
+        </div>
     </div>
 </body>
 
