@@ -51,3 +51,5 @@
         return base64_encode($rawImage);
     
     }
+
+?>

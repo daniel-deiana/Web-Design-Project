@@ -13,7 +13,7 @@ function requestMeds(startID) {
     };
 
     // invio la richiesta al server 
-    xhttp.open("GET", "./../backendLogic/getMeds.php?startID="+startID, true);
+    xhttp.open("GET", "./../backendLogic/getMeds.php?startID=" + startID, true);
     xhttp.send();
 }
 
@@ -23,7 +23,7 @@ function drawMeds(arrMeds) {
     console.log(arrMeds);
     var containerElem = document.getElementById('container-med');
 
-    for (let i = 0; i < arrMeds.length ; i++) {
+    for (let i = 0; i < arrMeds.length; i++) {
 
         // creo il div che contiene la card del farmaco
         let divMed = document.createElement('div');
@@ -33,12 +33,23 @@ function drawMeds(arrMeds) {
         let pMed = document.createElement('p');
         pMed.textContent = arrMeds[i].nome;
         divMed.appendChild(pMed);
-        
+
         // richiedo l'immagine del medicinale 
         let image = document.createElement('img')
         loadImage(arrMeds[i].nome, image)
         image.height = image.width = 150;
         divMed.appendChild(image);
+
+        let aElem = document.createElement('a');
+        aElem.href = './../pages/medPage.php?medName=' + arrMeds[i].nome;
+        aElem.id = 'show-button';
+
+        // bottone per andare alla pagina personale del medicinale
+        let showButton = document.createElement('div');
+        showButton.textContent = 'Mostra';
+        aElem.appendChild(showButton);
+
+        divMed.appendChild(aElem);
 
         // aggiungo il div del farmaco alla pagina
         containerElem.appendChild(divMed);

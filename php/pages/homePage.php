@@ -14,10 +14,8 @@
         <div id='container-main'>
             <?php require './../templates/leftBar.php' ?>
             <?php
-
-                if (isset($_SESSION['username']))
-                    require './../templates/medSection.php'
-            
+            if (isset($_SESSION['username']))
+                require './../templates/medSection.php'
             ?>
             <?php require './../templates/rightBar.php' ?>
         </div>
