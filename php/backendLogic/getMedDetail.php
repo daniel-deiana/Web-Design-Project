@@ -1,16 +1,15 @@
-<?php
-
+<?php 
+    
     require('./queryManager.php');
 
     session_start();
 
-    if(!isset($_SESSION['username']))
-    {
+    if (!isset($_SESSION['username'])) {
         echo 'CONTENUTO VIETATO AD UTENTI NON LOGGATI';
         exit;
     }
-
-    $result = getMeds($_GET['startID']);
     
-    echo json_encode($result);
+    $medName = $_GET['medName'];
+
+    echo json_encode(getMedDetail($medName));
 ?>

@@ -52,4 +52,19 @@
     
     }
 
+    function getMedDetail($medName) {
+        global $dbConn;
+
+        $queryText = "  SELECT F.* 
+                        FROM farmaco F
+                        WHERE F.nome = \"{$medName}\"
+                        LIMIT 1;
+                    ";
+
+        $queryResult = $dbConn->executeQuery($queryText);   
+        $dbConn->close();
+
+        return SQLconvertObject($queryResult);
+    }
+
 ?>
