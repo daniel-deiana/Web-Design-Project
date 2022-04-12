@@ -33,6 +33,11 @@ function drawMedDetail(medObject) {
     let image = document.createElement('img');
     loadImage(medObject[0].nome, image);
 
+    // Disponibilità
+    let elemDisp = document.createElement('div');
+    elemDisp.textContent = medObject[0].disponibilita;
+
+
     // descrizione 
     let elemDescription = document.createElement('p');
     elemDescription.textContent = medObject[0].descrizione; 
@@ -41,14 +46,24 @@ function drawMedDetail(medObject) {
     let elemPrice = document.createElement('p');
     elemPrice.textContent = medObject[0].prezzo;
 
-    // tipo ? 
+    // link per bottone prenota
+    let aElem = document.createElement('a');
+    aElem.href = './../backendLogic/putMed.php?name=' + medObject[0].nome;
+    aElem.id = 'prenota-button';
 
+    // bottone prenota
+    let elemPrenota = document.createElement('div');
+    elemPrenota.id = 'prenota-button';
+    elemPrenota.textContent = 'PRENOTA';
 
+    aElem.appendChild(elemPrenota);
+
+    // renderizzo il contenuto sulla pagina  
     container.appendChild(elemName);
     container.appendChild(image);
     container.appendChild(elemDescription);
     container.appendChild(elemPrice);
-    
+    container.appendChild(aElem);
 
 }
 

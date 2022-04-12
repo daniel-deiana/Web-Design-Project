@@ -52,6 +52,10 @@
     
     }
 
+    /*
+        Funzione che ritorna tutte le informazioni relative ad un certo medicinale presente nel db
+    */
+
     function getMedDetail($medName) {
         global $dbConn;
 
@@ -65,6 +69,35 @@
         $dbConn->close();
 
         return SQLconvertObject($queryResult);
+    }
+
+    /* Inserisce una prenotazione per un utente rispetto ad un certo medicinale */
+
+    function putMed($med,$user)
+    {
+        global $dbConn;
+        
+        
+        // prendo l'id del medicinale
+        $queryText = "  SELECT F.id
+                        FROM farmaco F
+                        WHERE F.nome = \"{$med}\"; 
+                    ";
+
+        $data = date('d-m-y h:i:s');
+        $queryResult = $dbConn->executeQuery($queryText);
+
+        $id = SQLconvertObject($queryResult)[0]['id'];
+
+        // inserisco la prenotazione 
+        $queryText = "  INSERT INTO prenotazione(farmaco,utente,data)
+                        VALUES($id,\"{$user}\",\"{$data}\");
+                    ";
+        
+        $queryResult = $dbConn->executeQuery($queryText);
+        $dbConn->close();  
+        
+        return $queryResult;
     }
 
 ?>
