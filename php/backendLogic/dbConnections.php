@@ -41,8 +41,7 @@
         function executeQuery($queryText) {
             if (!$this->isAlive()) {
                 $this->openConnection();
-            }
-            
+            }        
             
             return $this->dbConnection->query($queryText);
         }

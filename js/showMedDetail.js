@@ -22,45 +22,57 @@ function requestMedDetail(name) {
 */
 
 function drawMedDetail(medObject) {
-    
+
     let container = document.getElementById('med-details');
+    container.style.backgroundColor = 'white';
 
     // nome
     let elemName = document.createElement('p');
     elemName.textContent = medObject[0].nome;
+    elemName.className = 'text-tag'
 
     // immagine
     let image = document.createElement('img');
+    image.width = image.height = 400;
+    image.className = 'image-med'
     loadImage(medObject[0].nome, image);
+
+    let divImage = document.createElement('div');
+
+    divImage.appendChild(image);
 
     // Disponibilità
     let elemDisp = document.createElement('div');
     elemDisp.textContent = medObject[0].disponibilita;
+    elemDisp.className = 'text-tag'
 
 
     // descrizione 
     let elemDescription = document.createElement('p');
-    elemDescription.textContent = medObject[0].descrizione; 
+    elemDescription.textContent = medObject[0].descrizione;
+    elemDescription.className = 'text-tag'
 
     // prezzo
     let elemPrice = document.createElement('p');
-    elemPrice.textContent = medObject[0].prezzo;
+    elemPrice.textContent = 'prezzo al pubblico: ' + medObject[0].prezzo+" $";
+    elemPrice.className = 'text-tag';
 
     // link per bottone prenota
     let aElem = document.createElement('a');
     aElem.href = './../backendLogic/putMed.php?name=' + medObject[0].nome;
-    aElem.id = 'prenota-button';
+    aElem.className = 'text-tag'
 
     // bottone prenota
     let elemPrenota = document.createElement('div');
     elemPrenota.id = 'prenota-button';
-    elemPrenota.textContent = 'PRENOTA';
+    elemPrenota.textContent = 'Prenota';
+    elemPrenota.style.color = 'white';
 
     aElem.appendChild(elemPrenota);
 
     // renderizzo il contenuto sulla pagina  
     container.appendChild(elemName);
-    container.appendChild(image);
+    container.appendChild(divImage);
     container.appendChild(elemDescription);
     container.appendChild(elemPrice);
     container.appendChild(aElem);

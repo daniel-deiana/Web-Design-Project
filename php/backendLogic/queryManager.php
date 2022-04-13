@@ -77,7 +77,6 @@
     {
         global $dbConn;
         
-        
         // prendo l'id del medicinale
         $queryText = "  SELECT F.id
                         FROM farmaco F

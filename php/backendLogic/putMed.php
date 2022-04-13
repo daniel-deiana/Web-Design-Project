@@ -4,7 +4,7 @@
         questa funzione si occupa di inserire una prenotazione 
         per un medicinale relativamente ad un certo utente
     */
-    
+
     session_start();
 
     if (!isset($_SESSION['username'])){
@@ -21,11 +21,7 @@
     if(putMed($medName,$user))
     {
         // procedura andata a buon fine, allora re indirizzo alla pagina di successo
-        
         header('location, ./../pages/bookSuccess.php');
         exit;
     }
-
-    header('location, ./..')
-    
 ?>
