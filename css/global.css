@@ -13,6 +13,7 @@ a:visited{
 }
 
 p {
+    color: white;
     font-size: large;
     display: inline-block;
 }
@@ -25,6 +26,8 @@ p {
 
 #container-main {
     display: flex;
+    justify-content: center;
+    
 }
 
 #container-med {
@@ -178,7 +181,13 @@ input {
     display: flex;
     margin-top: 3%;
     position: relative;
+    flex-direction: column;
+    
     width: 30%;
+    margin: 5%;
+
+
+    align-content: center;
 }
 
 #sidebar-sx{
@@ -219,3 +228,26 @@ input {
     border-radius: 15px 15px 15px 15px;
     
 }
+
+.sidebar-elem{
+    background-color: #3e78d5;;
+
+    font-size: larger;
+    display: flex;
+
+
+    width: fit-content;
+    height: fit-content;
+    
+
+    margin: 2%;
+    padding: 10%;
+
+    border-radius: 20px;
+    box-shadow: 1px 2px 5px 5px  #d3d2d2;
+
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-elem:hover{ margin-top: 2%;}

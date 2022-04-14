@@ -61,12 +61,13 @@ function drawMedDetail(medObject) {
     let aElem = document.createElement('a');
     aElem.href = './../backendLogic/putMed.php?name=' + medObject[0].nome;
     aElem.className = 'text-tag'
+    aElem.style.backgroundColor = '#4bdb87'
 
     // bottone prenota
     let elemPrenota = document.createElement('div');
     elemPrenota.id = 'prenota-button';
     elemPrenota.textContent = 'Prenota';
-    elemPrenota.style.color = 'white';
+    elemPrenota.style.color = 'black';
 
     aElem.appendChild(elemPrenota);
 

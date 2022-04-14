@@ -17,7 +17,7 @@
 
         // query the db and confront values 
         global $dbConn;
-        $queryText = "  SELECT U.username, U.hashvalue
+        $queryText = "  SELECT U.*
                         FROM utente U
                         WHERE U.username = \"{$_POST['username']}\";
                     ";
@@ -28,11 +28,13 @@
         //  
         $array_user = SQLconvertObject($queryResult);
 
-        if (mysqli_num_rows($queryResult) != 0 && password_verify($_POST['password'],$array_user[0]['hashvalue'])) {
-            
+        if (mysqli_num_rows($queryResult) != 0 
+            && password_verify($_POST['password'],$array_user[0]['hashvalue'])) {
+        
             // user session setup 
             session_start();
             $_SESSION['username'] = $_POST['username'];
+            $_SESSION['usrtype'] = $array_user[0]['tipo']; 
             return true;
         }
         else 
