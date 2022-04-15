@@ -13,7 +13,7 @@
             echo "<a class = 'navbar-elem' href = './loginPage.php'>login</a>";
             echo "<a class = 'navbar-elem' href = './signupPage.php'>signup</a>";
         } else {
-            echo '<p>Ciao,'.$_SESSION['username'] . '</p>';
+            echo '<p>Ciao,'.$_SESSION['username'].'</p>';
             echo "<a class = 'navbar-elem' href = './../auth/logout.php'>logout</a>";
         }
         ?>

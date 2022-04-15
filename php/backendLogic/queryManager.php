@@ -99,4 +99,19 @@
         return $queryResult;
     }
 
+    function getBookHistory($user) {
+        global $dbConn;
+
+        $queryText = "  SELECT P.*  
+                        FROM prenotazione P
+                        WHERE P.utente = \"{$user}\"
+                        ORDER BY P.data;
+                    "; 
+
+        $queryResult = $dbConn->executeQuery($queryText);
+        $dbConn->close();
+    
+        return SQLconvertObject($queryResult);
+    }
+
 ?>

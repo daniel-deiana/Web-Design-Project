@@ -13,7 +13,7 @@
         <div class='container-form'>
             <form action="./../auth/login.php" method='post' id='login'>
                 <input class='box-form' type="text" name='username' placeholder="username">
-                <input class='box-form' type="text" name='password' placeholder="password">
+                <input class='box-form' type="password" name='password' placeholder="password">
                 <input class='box-form' type="submit" value="submit">
             </form>
         </div>

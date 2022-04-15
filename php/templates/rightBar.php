@@ -13,8 +13,8 @@
     }
 
 
-    echo '<a class ="sidebar-elem" href = "./../profilePage.php">Profilo utente</a>';
-    echo '<a class ="sidebar-elem" href = "./../bookedPage.php">storico prenotazioni</a>';
+    echo '<a class ="sidebar-elem" href = "./profilePage.php">Profilo utente</a>';
+    echo '<a class ="sidebar-elem" href = "./bookHistory.php">storico prenotazioni</a>';
 
 
     ?>
