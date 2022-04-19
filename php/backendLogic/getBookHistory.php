@@ -1,6 +1,8 @@
 <?php
 
 
+    require('./queryManager.php');
+
     session_start();
 
 
@@ -12,6 +14,6 @@
 
     $user = $_SESSION['username'];
 
-    getBookHistory($user);    
+    echo json_encode(getBookHistory($user));
 
 ?>

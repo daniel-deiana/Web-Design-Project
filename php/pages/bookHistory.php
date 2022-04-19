@@ -15,6 +15,9 @@
             <?php require './../templates/leftBar.php' ?>
             <?php require './../templates/history.php' ?>
             <div class='container-form' id='container-history'></div>
+            <script>
+                requestBookHistory()
+            </script>
             <?php require './../templates/rightBar.php' ?>
         </div>
     </div>
