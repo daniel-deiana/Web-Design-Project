@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     // include classes, utilities for DB
     require_once './../backendLogic/dbConnections.php';
     require_once './../backendLogic/queryManager.php';

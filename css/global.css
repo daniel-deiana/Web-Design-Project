@@ -230,24 +230,52 @@ input {
 }
 
 .sidebar-elem{
-    background-color: #3e78d5;;
-
+    background-color: #3e78d5;
     font-size: larger;
     display: flex;
-
-
     width: fit-content;
     height: fit-content;
-    
-
     margin: 2%;
     padding: 10%;
-
     border-radius: 20px;
     box-shadow: 1px 2px 5px 5px  #d3d2d2;
-
     color: white;
     text-decoration: none;
 }
 
 .sidebar-elem:hover{ margin-top: 2%;}
+
+#table-history {
+    
+    border-radius: 5px ;
+    margin: 3%;
+}
+
+.elem-table {
+    padding: 1%;
+    font-size: larger;
+    width: 10%;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px ;
+}
+
+#elem-review {
+
+    color: white;
+    text-align: center;
+    border-radius: 35px;
+    background-color: hsl(126, 42%, 68%);
+}
+
+#elem-review:hover {
+    margin-bottom: 2px;
+}
+
+
+table, table td {
+    border-spacing: 5px;
+}
+
+hr { margin: 0; }
