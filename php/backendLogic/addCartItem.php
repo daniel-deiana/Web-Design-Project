@@ -6,7 +6,11 @@
 
     session_start();
 
-    $cart = new medCart();
+    if(isset($_SESSION['cart'])) {
+        $cart = unserialize($_SESSION['cart']);
+    }
+    else
+        $cart = new medCart();
 
     $cartItem = array (
         "name" => $_GET['medName'],

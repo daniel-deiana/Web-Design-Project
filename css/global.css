@@ -314,3 +314,41 @@ hr { margin: 0; }
 .box-form {
     border: 0px;
 }
+
+
+.cart-bar {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.cart-elem {
+    width: 20%;
+    font-size: larger;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    margin: 2%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    
+}
+
+.button-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #77dd81;
+    position: relative;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50px;
+    border-radius: 15px;
+}

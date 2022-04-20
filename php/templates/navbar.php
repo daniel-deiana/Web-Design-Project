@@ -14,6 +14,7 @@
             echo "<a class = 'navbar-elem' href = './signupPage.php'>signup</a>";
         } else {
             echo '<p>Ciao,'.$_SESSION['username'].'</p>';
+            echo "<a class = 'navbar-elem' href = './cartPage.php'>carrello</a>";
             echo "<a class = 'navbar-elem' href = './../auth/logout.php'>logout</a>";
         }
         ?>

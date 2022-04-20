@@ -1,4 +1,3 @@
-
 <div class='container-form'>
     <?php
 
@@ -10,12 +9,16 @@
         echo 'SEZIONE NON DISPONIBILE PER UTENTI NON LOGGATI';
         exit;
     }
-    
+
     $cart = unserialize($_SESSION['cart']);
 
-    foreach($cart->cartList as $item) {
-        echo $item['name'];
-        
+    foreach ($cart->cartList as $item) {
+        echo    "<div class = 'cart-bar'>" .
+            "<div class = 'cart-elem'>" . "farmaco:" . $item['name'] . "</div>" .
+            "<div id = 'qt-" . $item['name'] . "' class = 'cart-elem'>" . "" . $item['quantity'] . "</div>" .
+            "<a class = 'button-cart' onclick = updateCart('" . $item['name'] . "',1)  >+</a>" .
+            "<a class = 'button-cart' onclick = updateCart('" . $item['name'] . "',-1) >-</a>" .
+            "</div>";
     }
 
     ?>
