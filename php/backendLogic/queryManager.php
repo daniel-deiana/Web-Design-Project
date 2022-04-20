@@ -83,7 +83,7 @@
                         WHERE F.nome = \"{$med}\"; 
                     ";
 
-        $data = date('d-m-y h:i:s');
+        $data = date('F j, Y, g:i a');
         $queryResult = $dbConn->executeQuery($queryText);
 
         $id = SQLconvertObject($queryResult)[0]['id'];

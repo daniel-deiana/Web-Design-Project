@@ -281,6 +281,8 @@ input {
 
 
 table, table td {
+    width: fit-content;
+    height: fit-content;
     font-size: large;
     border-spacing: 5px;
 }
