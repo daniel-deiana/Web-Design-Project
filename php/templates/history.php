@@ -12,5 +12,4 @@
     $echoString =   '<script>
                         requestBookHistory('.$_SESSION['username'].'
                     </script>';
-
 ?>

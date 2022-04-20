@@ -102,8 +102,9 @@
     function getBookHistory($user) {
         global $dbConn;
 
-        $queryText = "  SELECT P.*  
+        $queryText = "  SELECT F.nome, P.stato, P.data  
                         FROM prenotazione P
+                        INNER JOIN farmaco F ON F.id = P.farmaco
                         WHERE P.utente = \"{$user}\"
                         ORDER BY P.data;
                     "; 

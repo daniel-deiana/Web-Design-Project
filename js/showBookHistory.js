@@ -31,7 +31,7 @@ function drawBookHistory(response) {
 
         let c1 = document.createElement('td');
         c1.className = 'elem-table'
-        c1.textContent = response[i].farmaco
+        c1.textContent = response[i].nome
         r.appendChild(c1);
 
 
@@ -53,10 +53,10 @@ function drawBookHistory(response) {
         // bottone per lasciare l'esperienza con il farmaco
         let a = document.createElement('a');
         a.textContent = 'Review';
-        a.href = "./../pages/reviewPage.php";
+        a.href = "./../pages/reviewPage.php?medName=" + response[i].nome;
 
         c3.appendChild(a);
-    }   
+    }
 
     cont.appendChild(table);
 

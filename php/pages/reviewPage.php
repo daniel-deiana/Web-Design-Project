@@ -20,7 +20,13 @@ if (!$_SESSION['username']) {
     <div id='container-page'>
         <?php require './../templates/navbar.php' ?>
         <div id='container-main'>
-            <?php require './../templates/leftBar.php' ?>
+            <?php require './../templates/medDetails.php'?>
+            <div class='container-form'>
+                <form action="putReview.php" method = 'post' id = 'login'>
+                    <input class='box-form' type="text" name='review' placeholder="review">
+                    <input class='box-form' type="submit" value="submit">
+                </form>
+            </div>
             <?php require './../templates/rightBar.php' ?>
         </div>
     </div>
