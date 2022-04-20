@@ -13,9 +13,10 @@ a:visited{
 }
 
 p {
+    display:inline;
     color: white;
     font-size: large;
-    display: inline-block;
+
 }
 
 #container-page{
@@ -280,7 +281,14 @@ input {
 
 
 table, table td {
+    font-size: large;
     border-spacing: 5px;
+}
+
+th {
+    text-align: left;
+    color: white;
+    font-size: large;
 }
 
 hr { margin: 0; }

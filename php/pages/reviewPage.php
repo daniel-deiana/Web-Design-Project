@@ -23,8 +23,9 @@ if (!$_SESSION['username']) {
             <?php require './../templates/medDetails.php' ?>
             <div class='container-form'>
                 <form action="putReview.php" method='post' id='login'>
+                    <p>Lascia la tua esperienza con il farmaco</p>
                     <textarea id='text-block' style=" overflow: scroll;"></textarea>
-                    <input class='box-form' type="submit" value="submit" id = 'submit'>
+                    <input class='box-form' type="submit" value="submit" id='submit'>
                 </form>
             </div>
             <?php require './../templates/rightBar.php' ?>

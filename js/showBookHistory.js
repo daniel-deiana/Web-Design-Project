@@ -23,6 +23,21 @@ function drawBookHistory(response) {
     let table = document.createElement('table');
 
     table.id = 'table-history'
+    
+    let r0 = document.createElement('tr');
+    let c = document.createElement('th');
+    c.textContent = 'farmaco'
+    r0.appendChild(c);
+
+    let c1 = document.createElement('th');
+    c1.textContent = 'data prenotazione'
+    r0.appendChild(c1);
+
+    let c2 = document.createElement('th');
+    c2.textContent = 'stato'
+    r0.appendChild(c2);
+
+    table.appendChild(r0);
 
     for (let i = 0; i < response.length; i++) {
 
