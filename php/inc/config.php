@@ -4,4 +4,6 @@
     $dbPassword = '';
     $dbName = 'WebPharma';
     $dbUsername  = 'root';
+
+
 ?>
