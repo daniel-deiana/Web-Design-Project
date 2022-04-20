@@ -1,19 +1,20 @@
 <?php
 
+    // aggiunge un nuovo medicinale al carrello
+
     require_once './cartManager.php';
 
     session_start();
 
     $cart = new medCart();
 
-    $medName = $_GET['medName'];
-    $medQuantity = $_GET['quantity'];
-
     $cartItem = array (
-        "name" => $medName,
-        "quantity" => $medQuantity
+        "name" => $_GET['medName'],
+        "quantity" => $_GET['quantity']
     );
 
     $cart->insert($cartItem);
+    $_SESSION['cart'] = serialize($cart);
+
     
 ?>

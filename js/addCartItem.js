@@ -1,10 +1,12 @@
-function insertCartItem(name,quantity)
+
+
+function insertCartItem(name, quantity)
 {
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = () => {
         if (xhttp.status == 200 && xhttp.readyState == 4) {
-            return true
+            return true;
         }
     }
 
