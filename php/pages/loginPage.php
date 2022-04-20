@@ -12,9 +12,11 @@
         <?php require './../templates/leftBar.php' ?>
         <div class='container-form'>
             <form action="./../auth/login.php" method='post' id='login'>
+                <p>username</p>
                 <input class='box-form' type="text" name='username' placeholder="username">
+                <p>password</p>
                 <input class='box-form' type="password" name='password' placeholder="password">
-                <input class='box-form' type="submit" value="submit">
+                <input class='box-form' type="submit" value="submit" id='submit'>
             </form>
         </div>
         <?php require './../templates/rightBar.php' ?>

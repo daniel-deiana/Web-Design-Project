@@ -89,8 +89,8 @@
         $id = SQLconvertObject($queryResult)[0]['id'];
 
         // inserisco la prenotazione 
-        $queryText = "  INSERT INTO prenotazione(farmaco,utente,data)
-                        VALUES($id,\"{$user}\",\"{$data}\");
+        $queryText = "  INSERT INTO prenotazione(farmaco,utente,data,stato)
+                        VALUES($id,\"{$user}\",\"{$data}\",'non ritirato');
                     ";
         
         $queryResult = $dbConn->executeQuery($queryText);
@@ -114,5 +114,4 @@
     
         return SQLconvertObject($queryResult);
     }
-
 ?>

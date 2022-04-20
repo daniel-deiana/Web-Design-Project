@@ -2,6 +2,8 @@
     <?php
     session_start();
 
+
+    // se non sono loggato non mostro nessun contenuto
     if (!isset($_SESSION['username']))
         exit;
 
@@ -12,10 +14,9 @@
         exit;
     }
 
-
+    // renderizzo contenuto utente standard
     echo '<a class ="sidebar-elem" href = "./profilePage.php">Profilo utente</a>';
     echo '<a class ="sidebar-elem" href = "./bookHistory.php">storico prenotazioni</a>';
-
 
     ?>
 </aside>

@@ -118,7 +118,12 @@ a {
     background-color: #3e78d5;
     width: 100%;
     height: fit-content;
+    
+    margin: 1%;
+    margin-top: 3%;
 
+
+    
     border-radius: 20px;
     box-shadow: 1px 2px 5px 5px  #d3d2d2;
 }
@@ -266,7 +271,7 @@ input {
     color: white;
     text-align: center;
     border-radius: 35px;
-    background-color: hsl(126, 42%, 68%);
+    background-color:  #77dd81;
 }
 
 #elem-review:hover {
@@ -279,3 +284,23 @@ table, table td {
 }
 
 hr { margin: 0; }
+
+
+
+#text-block {
+    font-family: 'Avenir';
+    font-size: larger;
+    border-radius: 15px;
+    width: 500px;
+    height: 100px;
+}
+
+#submit{
+    color: white;
+    border: 0px;
+    background-color:  #77dd81;
+}
+
+.box-form {
+    border: 0px;
+}
