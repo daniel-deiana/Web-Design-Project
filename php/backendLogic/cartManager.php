@@ -1,4 +1,7 @@
+
 <?php
+
+    require_once 'queryManager.php';
 
     class medCart {
 
@@ -8,6 +11,7 @@
         // inserisce un nuovo elemento nel carrello
         public function insert($cartItem) {
             array_push($this->cartList,$cartItem);
+            return true;
         }
 
         public function update($name,$type) {
@@ -22,6 +26,13 @@
             }
         return false;
         }    
+
+        public function book() {
+            for ($i = 0; $i < count($this->cartList); $i++) {
+                putMed($this->cartList[$i]['name'], $this->cartList[$i]['quantity'], $_SESSION['username']);
+            }
+            return true;
+        }   
 
     }
 ?>

@@ -59,7 +59,7 @@ function drawMedDetail(medObject) {
 
     // link per bottone prenota
     let aElem = document.createElement('a');
-    aElem.href = './../backendLogic/putMed.php?name=' + medObject[0].nome;
+    aElem.href = './../backendLogic/addCartItem.php?medName=' + medObject[0].nome + '&quantity=1';
     aElem.className = 'text-tag'
     aElem.style.backgroundColor = '#4bdb87'
 

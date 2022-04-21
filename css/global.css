@@ -176,8 +176,8 @@ input {
 }
 
 .card-med:hover {
-     transform: scaleX(1.05); /* IE 9 */
-     transform: scaleY(1.05); /* IE 9 */
+     transform: scaleX(1.05); 
+     transform: scaleY(1.05); 
 }
 
 
@@ -263,7 +263,6 @@ input {
     width: 10%;
     height: fit-content;
     background-color: white;
-    border: 1px solid black;
     border-radius: 10px ;
 }
 

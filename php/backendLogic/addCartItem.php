@@ -17,8 +17,12 @@
         "quantity" => $_GET['quantity']
     );
 
-    $cart->insert($cartItem);
+    $result = $cart->insert($cartItem);
+    
     $_SESSION['cart'] = serialize($cart);
 
-    
+    if($result)
+        header('location: ./../pages/cartPage.php');
+    else
+        echo 'ERRORE CARRELLO';
 ?>

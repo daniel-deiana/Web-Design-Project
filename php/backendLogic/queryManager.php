@@ -73,7 +73,7 @@
 
     /* Inserisce una prenotazione per un utente rispetto ad un certo medicinale */
 
-    function putMed($med,$user)
+    function putMed($med,$quantity,$user)
     {
         global $dbConn;
         
@@ -89,8 +89,8 @@
         $id = SQLconvertObject($queryResult)[0]['id'];
 
         // inserisco la prenotazione 
-        $queryText = "  INSERT INTO prenotazione(farmaco,utente,data,stato)
-                        VALUES($id,\"{$user}\",\"{$data}\",'non ritirato');
+        $queryText = "  INSERT INTO prenotazione(farmaco,utente,data,stato,quantita)
+                        VALUES($id,\"{$user}\",\"{$data}\",'non ritirato',$quantity);
                     ";
         
         $queryResult = $dbConn->executeQuery($queryText);
