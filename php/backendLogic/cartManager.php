@@ -14,6 +14,7 @@
             return true;
         }
 
+        // aggiorna il carrello
         public function update($name,$type) {
 
             // aggiorna il carello secondo i parametri passati in ingresso
@@ -27,6 +28,7 @@
         return false;
         }    
 
+        // prenota gli elementi del carrello
         public function book() {
             for ($i = 0; $i < count($this->cartList); $i++) {
                 putMed($this->cartList[$i]['name'], $this->cartList[$i]['quantity'], $_SESSION['username']);

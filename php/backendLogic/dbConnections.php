@@ -27,7 +27,7 @@
                 die("Connection failed: " . $this->dbConnection->connect_error);
             }
             
-            // seleziono il mio db
+            // seleziono il db
             $this->dbConnection->select_db($dbName) or die('Error selecting db');
             $this->dbConnection->set_charset("utf-8");
         }
