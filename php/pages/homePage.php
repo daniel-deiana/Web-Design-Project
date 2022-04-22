@@ -19,6 +19,7 @@
             ?>
             <?php require './../templates/rightBar.php' ?>
         </div>
+        <?php require './../templates/footer.php' ?>
     </div>
 </body>
 

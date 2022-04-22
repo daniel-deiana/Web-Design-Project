@@ -29,6 +29,7 @@ if (!$_SESSION['username']) {
             <?php require './../templates/rightBar.php' ?>
         </div>
     </div>
+    <?php require './../templates/footer.php' ?>
 </body>
 
 </html>

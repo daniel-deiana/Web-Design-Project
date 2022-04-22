@@ -20,6 +20,7 @@
             </form>
         </div>
         <?php require './../templates/rightBar.php' ?>
+        <?php require './../templates/footer.php' ?>
     </div>
 </body>
 
