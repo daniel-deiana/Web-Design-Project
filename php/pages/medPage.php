@@ -1,5 +1,4 @@
-
-<?php require_once './../backendLogic/cartManager.php'?>
+<?php require_once './../backendLogic/cartManager.php' ?>
 <?php session_start();
 
 if (!$_SESSION['username']) {
@@ -16,13 +15,16 @@ if (!$_SESSION['username']) {
     <title><?php echo $_GET['medName']; ?></title>
     <link rel='stylesheet' href='./../../css/global.css'>
     <script src='./../../js/showMedDetail.js'></script>
+    <script src='./../../js/showReviews.js'></script>
 </head>
 
 <body>
     <div id='container-page'>
         <?php require './../templates/navbar.php' ?>
         <div id='container-main'>
-            <?php require './../templates/leftBar.php' ?>
+            <?php // require './../templates/leftBar.php' 
+            ?>
+            <?php require './../templates/reviewSection.php'; ?>
             <?php require './../templates/medDetails.php' ?>
             <?php require './../templates/rightBar.php' ?>
         </div>

@@ -351,3 +351,20 @@ hr { margin: 0; }
     width: 50px;
     border-radius: 15px;
 }
+
+.review {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 1px 2px 5px 5px  #d3d2d2;
+    background-color: white;
+    width: 150px;
+    height: 20%;
+    padding: 10px;
+}
+
+#container-review {
+    display: flex;
+    flex-direction: column;
+
+}

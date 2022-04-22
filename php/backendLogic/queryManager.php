@@ -140,4 +140,26 @@
 
         return $queryResult;
     }
+
+
+    function getReviews($med) {
+        global $dbConn;
+
+        $queryText = "  SELECT R.testo, R.data
+                        FROM review R
+                        INNER JOIN farmaco F ON F.id = R.farmaco
+                        WHERE F.nome = \"$med\";
+                    ";
+
+        $queryResult = $dbConn->executeQuery($queryText);
+        $dbConn->close();
+        
+        return SQLconvertObject($queryResult);
+    }
+
+
+
+
+
+
 ?>
