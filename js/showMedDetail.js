@@ -30,7 +30,8 @@ function drawMedDetail(medObject) {
     let elemName = document.createElement('p');
     elemName.textContent = medObject[0].nome;
     elemName.className = 'text-tag'
-
+    elemName.name = 'medName';
+    
     // immagine
     let image = document.createElement('img');
     image.width = image.height = 400;

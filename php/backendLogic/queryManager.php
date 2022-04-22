@@ -3,6 +3,22 @@
     // This file contains all queries used to retrieve/modify data on MySql database
     require_once './../backendLogic/dbConnections.php';
 
+    function idFromMed($med)
+    {
+        global $dbConn;
+
+        // prendo l'id del medicinale
+        $queryText = "  SELECT F.id
+                                FROM farmaco F
+                                WHERE F.nome = \"{$med}\"; 
+                            ";
+
+        $queryResult = $dbConn->executeQuery($queryText);
+        $dbConn->close();
+
+        return SQLconvertObject($queryResult)[0]['id'];
+    }
+
     // funzione di conversione da oggetto SQL ad array
     function SQLconvertObject($SQLresult) {
         return $SQLresult->fetch_all(MYSQLI_ASSOC);
@@ -77,17 +93,10 @@
     {
         global $dbConn;
         
-        // prendo l'id del medicinale
-        $queryText = "  SELECT F.id
-                        FROM farmaco F
-                        WHERE F.nome = \"{$med}\"; 
-                    ";
-
+        $id = idFromMed($med);
+        
         $data = date('F j, Y, g:i a');
-        $queryResult = $dbConn->executeQuery($queryText);
-
-        $id = SQLconvertObject($queryResult)[0]['id'];
-
+    
         // inserisco la prenotazione 
         $queryText = "  INSERT INTO prenotazione(farmaco,utente,data,stato,quantita)
                         VALUES($id,\"{$user}\",\"{$data}\",'non ritirato',$quantity);
@@ -113,5 +122,22 @@
         $dbConn->close();
     
         return SQLconvertObject($queryResult);
+    }
+
+    function putReview($review,$user,$med) {
+
+        global $dbConn; 
+
+        $id = idFromMed($med);
+        $data = date('F j, Y, g:i a');
+
+        $queryText = "  INSERT INTO review(utente,farmaco,data,testo)
+                        VALUES(\"{$user}\",\"$id\",\"{$data}\",\"{$review}\");
+                    ";
+        
+        $queryResult = $dbConn->executeQuery($queryText);
+        $dbConn->close();
+
+        return $queryResult;
     }
 ?>
