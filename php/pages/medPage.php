@@ -28,8 +28,8 @@ if (!$_SESSION['username']) {
             <?php require './../templates/medDetails.php' ?>
             <?php require './../templates/rightBar.php' ?>
         </div>
+        <?php require './../templates/footer.php' ?>
     </div>
-    <?php require './../templates/footer.php' ?>
 </body>
 
 </html>

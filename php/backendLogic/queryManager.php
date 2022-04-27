@@ -145,7 +145,7 @@
     function getReviews($med) {
         global $dbConn;
 
-        $queryText = "  SELECT R.testo, R.data
+        $queryText = "  SELECT R.testo, R.data, R.utente
                         FROM review R
                         INNER JOIN farmaco F ON F.id = R.farmaco
                         WHERE F.nome = \"$med\";
@@ -157,9 +157,37 @@
         return SQLconvertObject($queryResult);
     }
 
+    // funzione che controlla che un determinato utente non abbia gia lasciato un parere su un medicinale
+    function checkReview($med,$user) {
 
+        global $dbConn; 
 
+        $queryText = "SELECT R.farmaco FROM review R 
+                      INNER JOIN farmaco F ON F.id = R.farmaco    
+                      WHERE F.nome = \"{$med}\"
+                      AND R.utente = \"{$user}\";
+                      ";
 
+        $queryResult = $dbConn->executeQuery($queryText);
+        $dbConn->close();
 
+        return SQLconvertObject($queryResult);
+    }
+
+    function checkBookHistory($med,$user) {
+        
+        global $dbConn;
+
+        $queryText = "      SELECT P.utente FROM prenotazione P
+                            INNER JOIN farmaco F ON F.id = P.farmaco
+                            WHERE P.utente = \"{$user}\"
+                            AND F.nome = \"{$med}\";
+                        ";
+
+        $queryResult = $dbConn->executeQuery($queryText);
+        $dbConn->close();
+
+        return SQLconvertObject($queryResult);
+    }
 
 ?>
