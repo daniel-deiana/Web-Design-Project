@@ -207,4 +207,19 @@
 
         $dbConn->close();     
     } 
+
+    function getBookRecords($name) {
+        global $dbConn;
+    
+        $queryText = "  SELECT U.username, F.nome,P.quantita,P.data,P.stato
+                        FROM prenotazione P INNER JOIN farmaco F
+                        ON P.farmaco = F.id INNER JOIN utente U
+                        ON U.username = P.utente
+                        WHERE P.utente = \"$name\";
+        ";
+
+        $queryResult = $dbConn->executeQuery($queryText);
+
+        return SQLconvertObject($queryResult);
+    }
 ?>

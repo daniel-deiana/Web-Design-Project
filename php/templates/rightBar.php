@@ -10,7 +10,7 @@
     if ($_SESSION['usrtype'] == 'farmacista') {
         // renderizzo contenuto farmacisti
         echo '<a class ="sidebar-elem" href = "./../pages/newMedPage.php"> Inserisci un nuovo medicinale</a>';
-        echo '<a class ="sidebar-elem" href = "./../pages/bookHandlerPage.php">Gestione stato prenotazioni</a>';
+        echo '<a class ="sidebar-elem" href = "./../pages/bookHandlePage.php">Gestione stato prenotazioni</a>';
         exit;
     }
 
