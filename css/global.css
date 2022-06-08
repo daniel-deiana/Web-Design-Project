@@ -193,8 +193,6 @@ input {
     flex-direction: column;
     
     margin: 5%;
-
-
     align-content: center;
 }
 
@@ -400,4 +398,11 @@ body {
     height: 100px;
     margin: 0;
     border-spacing: 0;
+}
+
+textarea {
+    font-size: larger;
+    font-family: 'Avenir';
+    width: 300px;
+    height: 100px;
 }

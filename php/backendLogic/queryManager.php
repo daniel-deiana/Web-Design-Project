@@ -190,4 +190,21 @@
         return SQLconvertObject($queryResult);
     }
 
+    function insertNewMed($name,$desc,$price,$img_name) {
+        global $dbConn;
+
+        $queryText = "SELECT MAX(F.id) as ad FROM farmaco F";
+
+        $queryResult = $dbConn->executeQuery($queryText);
+        $max_id = SQLconvertObject($queryResult)[0]['ad'];
+
+
+        $path = './../../'.$img_name;
+
+        $queryText = "INSERT INTO farmaco(id,nome,image_path,descrizione,prezzo)
+        VALUES($max_id+1,\"$name\",\"$path\",\"$desc\",$price);";
+        $queryResult = $dbConn->executeQuery($queryText);
+
+        $dbConn->close();     
+    } 
 ?>
