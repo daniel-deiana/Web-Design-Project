@@ -9,13 +9,12 @@
 
     if ($_SESSION['usrtype'] == 'farmacista') {
         // renderizzo contenuto farmacisti
-        echo '<a class ="sidebar-elem" href = "./../newMedPage.php"> Inserisci un nuovo medicinale</a>';
-        echo '<a class ="sidebar-elem" href = "./../medStatsPage.php">Statistiche vendite</a>';
+        echo '<a class ="sidebar-elem" href = "./../pages/newMedPage.php"> Inserisci un nuovo medicinale</a>';
+        echo '<a class ="sidebar-elem" href = "./../pages/bookHandlerPage.php">Gestione stato prenotazioni</a>';
         exit;
     }
 
     // renderizzo contenuto utente standard
-    echo '<a class ="sidebar-elem" href = "./profilePage.php">Profilo utente</a>';
     echo '<a class ="sidebar-elem" href = "./bookHistory.php">storico prenotazioni</a>';
 
     ?>

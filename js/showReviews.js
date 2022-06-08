@@ -1,4 +1,4 @@
-function requestReviews(name) { 
+function requestReviews(name) {
 
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = () => {
@@ -6,11 +6,9 @@ function requestReviews(name) {
             drawReviews(JSON.parse(xhttp.responseText));
         }
     }
-
     xhttp.open("GET", "./../backendLogic/getReviews.php?medName=" + name);
     xhttp.send();
 }
-
 
 function drawReviews(responseArray) {
 
@@ -25,6 +23,7 @@ function drawReviews(responseArray) {
         divReview.style.wordBreak = 'word-break';
         divReview.textContent = responseArray[i].testo;
         divReview.style.padding = '20px'
+        divReview.style.margin = '10px';
 
         let p0 = document.createElement('div');
         p0.style.textAlign = 'center';
@@ -42,18 +41,19 @@ function drawReviews(responseArray) {
 
         let p = document.createElement('div');
         p.style.textAlign = 'center';
-        p.style.position = 'absolute';
+        p.style.position = 'relative';
         p.style.bottom = 0;
         p.style.width = '100%'
         p.style.color = 'white';
         p.style.left = 0;
+        p.style.borderStartEndRadius = '15px';
+        p.style.borderStartStartRadius = '15px';
         p.style.borderEndStartRadius = '15px';
         p.style.borderEndEndRadius = '15px';
         p.style.backgroundColor = '#3e78d5';
         p.style.fontWeight = 600;
         p.textContent = "In data: " + responseArray[i].data;
         divReview.appendChild(p);
-
         container.appendChild(divReview);
     }
 }

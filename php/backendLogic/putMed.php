@@ -19,7 +19,7 @@
 
     if(!isset($_SESSION['cart']))
     {
-        echo 'cazzi';
+        echo 'OPERAZIONE NON VALIDA';
         exit;
     }
 
