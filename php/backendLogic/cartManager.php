@@ -10,6 +10,13 @@
 
         // inserisce un nuovo elemento nel carrello
         public function insert($cartItem) {
+
+            foreach($this->cartList as $elem)
+            {
+                if($elem['name'] == $cartItem['name'])
+                    return false;
+            }
+
             array_push($this->cartList,$cartItem);
             return true;
         }

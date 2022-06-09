@@ -37,7 +37,6 @@
             return ($this->dbConnection != null);
         }
 
-        // executes a query on the db
         function executeQuery($queryText) {
             if (!$this->isAlive()) {
                 $this->openConnection();

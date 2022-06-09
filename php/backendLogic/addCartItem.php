@@ -21,12 +21,13 @@
     
     $_SESSION['cart'] = serialize($cart);
 
-    if($result)
+    if($result == true)
         header('location: ./../pages/cartPage.php');
     else
         {
             // gestione errore inserimento carrello
             $_SESSION['err_msg'] = 'err_carrello_agg';
             header('location: ./../pages/homePage.php');
+            exit;
         };
 ?>
