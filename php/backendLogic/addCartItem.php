@@ -24,5 +24,9 @@
     if($result)
         header('location: ./../pages/cartPage.php');
     else
-        echo 'ERRORE CARRELLO';
+        {
+            // gestione errore inserimento carrello
+            $_SESSION['err_msg'] = 'err_carrello_agg';
+            header('location: ./../pages/homePage.php');
+        };
 ?>

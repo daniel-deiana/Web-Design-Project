@@ -10,16 +10,24 @@
 
     session_start();
 
-    if (!isset($_SESSION['username'])) {
-        // non posso prenotare un farmaco se non sono loggato
-        echo 'ACCESSO NEGATO AD UTENTI NON LOGGATI';
+    if(!isset($_SESSION['username']))
+    {
+        $_SESSION['err_msg'] = 'err_permessi';  
+        header('location: ./../pages/homePage.php');
         exit;
-
     }
 
     if(!isset($_SESSION['cart']))
     {
-        echo 'OPERAZIONE NON VALIDA';
+        $_SESSION['err_msg'] = 'err_book';        
+        header('location: ./../pages/homePage.php');
+        exit;
+            
+    }
+
+    if($_SESSION['usrtype'] == 'farmacista') {
+        $_SESSION['err_msg'] = 'err_permessi';
+        header('location: ./../pages/homePage.php');
         exit;
     }
 
@@ -31,5 +39,3 @@
     $_SESSION['cart'] = null;
 
     header('location: ./../pages/cartPage.php')
-
-?>

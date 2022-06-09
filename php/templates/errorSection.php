@@ -8,7 +8,7 @@
     
     echo "<div id = 'container-form'>".$messaggio_errore.'</div>';
 
-    $_
+    $_SESSION['err_msg'] = null;
 ?> 
 
 

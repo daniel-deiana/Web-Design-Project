@@ -5,11 +5,11 @@
     session_start();
 
     if (!isset($_SESSION['username'])) {
-        echo 'CONTENUTO VIETATO AD UTENTI NON LOGGATI';
-        
+        $_SESSION['err_msg'] = 'err_not_log';
+        header('location: ./../pages/homePage.php');
         exit;
     }
-    
+
     $medName = $_GET['medName'];
 
     echo json_encode(getMedDetail($medName));

@@ -14,12 +14,14 @@
     $_SESSION['med'] = null; 
 
     if(!checkBookHistory($med, $_SESSION['username'])){
-        echo "NON PUOI ESEGUIRE UNA REVIEW DEL FARMACO SENZA AVERLO RITIRATO IN FARMACIA";
+        $_SESSION['err_msg'] = 'err_review_1';
+        header('location: ./../pages/homePage.php');
         exit;
     }
     
     if (checkReview($med,$_SESSION['username']) ) {
-        echo "HAI GIA FATTO LA REVIEW DEL FARMACO IN PRECENDENZA";
+        $_SESSION['err_msg'] = 'err_review_2';
+        header('location: ./../pages/homePage.php');
         exit;
     };
 
