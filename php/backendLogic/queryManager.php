@@ -31,9 +31,13 @@
         global $dbConn;
 
         // debug
+
+        $initial = $firstID * 4;
+        $last = $initial + 4 ;
+
         $queryText = "  SELECT F.nome
                         FROM farmaco F
-                        WHERE F.id > {$firstID};
+                        WHERE F.id >= {$initial} AND F.id <= {$last};
                     ";
         
         $queryResult = $dbConn->executeQuery($queryText);
@@ -208,18 +212,33 @@
         $dbConn->close();     
     } 
 
-    function getBookRecords($name) {
+    function getBookRecords($id) {
         global $dbConn;
     
         $queryText = "  SELECT U.username, F.nome,P.quantita,P.data,P.stato
                         FROM prenotazione P INNER JOIN farmaco F
                         ON P.farmaco = F.id INNER JOIN utente U
                         ON U.username = P.utente
-                        WHERE P.utente = \"$name\";
+                        WHERE P.codice = $id;
         ";
 
         $queryResult = $dbConn->executeQuery($queryText);
-
+        $dbConn->close();
         return SQLconvertObject($queryResult);
+    }
+
+    function updateBookState($id,$state) {
+        
+        global $dbConn; 
+
+        $state_string = ($state == -1) ? 'annullato' : 'ritirato';
+
+        $queryText = "  UPDATE prenotazione
+                        SET stato = \"$state_string\"
+                        WHERE codice = $id;
+                    ";
+
+        $dbConn->executeQuery($queryText);
+        $dbConn->close();
     }
 ?>

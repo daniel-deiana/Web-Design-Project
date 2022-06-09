@@ -1,6 +1,15 @@
-function requestMeds(startID) {
+let position = 0
 
+function requestMeds(direction) {
     // esegue una richiesta asincrona per stampare a schermo i farmaci
+
+
+    // mando avanti il cursore nella lista di elementi
+    position += direction;
+
+    // se il cursore è negativo resetto a zero
+    if (position < 0)
+        position = 0;
 
     var xhttp;
     xhttp = new XMLHttpRequest();
@@ -8,20 +17,28 @@ function requestMeds(startID) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             // richiesta pronta ed andata a buon fine 
             //prima chiedo di caricare l'immagine e poi carico tuttto il contenuto
+
             drawMeds(JSON.parse(xhttp.responseText));
         }
     };
-
+        
     // invio la richiesta al server 
-    xhttp.open("GET", "./../backendLogic/getMeds.php?startID=" + startID, true);
+    xhttp.open("GET", "./../backendLogic/getMeds.php?start=" + position, true);
     xhttp.send();
+
 }
 
 function drawMeds(arrMeds) {
     // prende in ingresso l'array di oggetti json
-
-    console.log(arrMeds);
     var containerElem = document.getElementById('container-med');
+
+    let len = document.getElementsByClassName('card-med');
+
+    const boxes = document.querySelectorAll('.card-med');
+
+    boxes.forEach(box => {
+        box.remove();
+    });
 
     for (let i = 0; i < arrMeds.length; i++) {
 

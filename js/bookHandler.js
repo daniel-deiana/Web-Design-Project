@@ -48,14 +48,16 @@ function drawBookRecords(array_book) {
 
         let c4 = document.createElement('td');
         let select = document.createElement('select');
-        select.text = '';
+        select.name = 'stato';
         c4.appendChild(select);
 
         let op1 = document.createElement('option');
         op1.textContent = 'ritirato';
+        op1.value = 0;
 
         let op2 = document.createElement('option');
         op2.textContent = 'annullato';
+        op2.value = -1;
 
         select.appendChild(op1)
         select.appendChild(op2)

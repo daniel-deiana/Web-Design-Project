@@ -17,7 +17,6 @@
         echo "NON PUOI ESEGUIRE UNA REVIEW DEL FARMACO SENZA AVERLO RITIRATO IN FARMACIA";
         exit;
     }
-
     
     if (checkReview($med,$_SESSION['username']) ) {
         echo "HAI GIA FATTO LA REVIEW DEL FARMACO IN PRECENDENZA";
