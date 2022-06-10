@@ -1,24 +1,48 @@
 <?php
-// inserisce un nuovo medicinale nella lista dei medicinali disponibili in farmacia
+    // inserisce un nuovo medicinale nella lista dei medicinali disponibili in farmacia
 
-    require './queryManager.php';
-    require './utilities.php';
+    session_start();
 
+    
     $name = $_POST['nome'];
     $description = $_POST['descrizione'];
+
+
+
+
     $price = $_POST['prezzo'];
 
-    $img_name = $_FILES['img']['name'];
+
+        $uploaddir = './';
+        $uploadfile = $uploaddir . basename($_FILES['img']['name']);
 
 
+        print_r($_FILES);
+
+        $uploads_dir = '/uploads';  
+        $tmp = basename($_FILES['img']['name']);
+
+        if (move_uploaded_file($_FILES['img']['tmp_name'], "$uploads_dir/$tmp")) {
+            echo "File is valid, and was successfully uploaded.\n";
+        } else {
+            echo "Upload failed";
+        }
+    
+    
+    /* 
+    if(!move_uploaded_file($_FILES['img']['tmp_name'], $_FILES['img']['name']))
+        {
+        $_SESSION['err_msg'] = 'err_img_load';
+        header('location: ./../pages/homePage.php');
+        exit;
+        } */
+    
     if ($_SESSION['usrtype'] != 'farmacista') {
         $_SESSION['err_msg'] = 'err_permessi';
         header('location: ./../pages/homePage.php');
         exit;
     }
+
     // insertNewMed($name,$description,$price,$img_name);
 
-    move_uploaded_file($_FILES['img']['tmp_name'],'./upload');
-    
-    // uploadMedImage($img);
 ?>

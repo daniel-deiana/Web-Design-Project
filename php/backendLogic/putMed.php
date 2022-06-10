@@ -34,8 +34,17 @@
     // mi vado a prendere tutti i farmaci e inserisco nelle prenotazioni dell' utente
 
     $arrayItem = unserialize($_SESSION['cart']);
-    $arrayItem->book();
+
+
+
+    if (!$arrayItem->book())
+    {
+        $_SESSION['err_msg'] = 'err_book';
+        header('location: ./../pages/homePage.php');
+        exit;
+    }
 
     $_SESSION['cart'] = null;
 
     header('location: ./../pages/cartPage.php')
+?>

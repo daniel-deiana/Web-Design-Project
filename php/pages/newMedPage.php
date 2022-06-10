@@ -23,14 +23,15 @@
                     <p>prezzo</p>
                     <input type='text' class='box-form' placeholder='prezzo' name='prezzo'>
                     <p>immagine</p>
-                    <input type='file' class='box-form' name='img' accept="image/*">
+                    <input type='file' class='box-form' name='img'>
                     <input type='submit' class='box-form' name='inserisci nuovo medicinale' id='submit'>
                 </form>
             </div>
             <?php require './../templates/rightBar.php' ?>
         </div>
-        <?php require './../templates/footer.php' ?>
+
     </div>
+
 </body>
 
 </html>

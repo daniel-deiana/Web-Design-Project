@@ -102,6 +102,7 @@ a {
 
 
 #cont-buttons {
+    
     width: inherit;
     height: inherit;
     display: flex;
@@ -116,10 +117,9 @@ a {
 #container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     justify-items: center;
-    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -410,8 +410,8 @@ body {
 #footer {
     margin-left: 0;
     margin-right: 0;
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -430,4 +430,22 @@ textarea {
     font-family: 'Avenir';
     width: 300px;
     height: 100px;
+}
+
+#container-err {
+
+
+    padding: 1%;
+    margin: 1%;
+    border-radius: 20px;
+    color: white;
+    background-color: #3e78d5;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.load-button {
+    margin: 30px;
 }

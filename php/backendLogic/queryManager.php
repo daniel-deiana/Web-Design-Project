@@ -37,7 +37,7 @@
 
         $queryText = "  SELECT F.nome
                         FROM farmaco F
-                        WHERE F.id >= {$initial} AND F.id <= {$last};
+                        WHERE F.id > {$initial} AND F.id <= {$last};
                     ";
         
         $queryResult = $dbConn->executeQuery($queryText);

@@ -26,10 +26,9 @@
                     <input type='submit' name='registrati' id='submit'>
                 </form>
             </div>
-            <?php require './../templates/rightBar.php' ?>
+            <?php require './../templates/rightBar.php'; ?>
         </div>
     </div>
-    <?php require './../templates/footer.php' ?>
 </body>
 
 </html>

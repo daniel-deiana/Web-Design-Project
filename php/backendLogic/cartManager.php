@@ -29,6 +29,15 @@
                 if ($this->cartList[$i]['name'] == $name) {
                     // nel carrelo era presente questo elemento, eseguo modifica    
                     $this->cartList[$i]['quantity'] += $type;
+                    
+                    if($this->cartList[$i]['quantity'] == 0)
+                        {
+                            unset($this->cartList[$i]);
+                        }
+
+                    if ($this->cartList[$i]['quantity'] > 3)
+                        $this->cartList[$i]['quantity'] = 3;
+                
                     return true;     
                 }
             }
@@ -37,6 +46,10 @@
 
         // prenota gli elementi del carrello
         public function book() {
+
+            if(count($this->cartList) == 0)
+                return false;
+
             for ($i = 0; $i < count($this->cartList); $i++) {
                 putMed($this->cartList[$i]['name'], $this->cartList[$i]['quantity'], $_SESSION['username']);
             }

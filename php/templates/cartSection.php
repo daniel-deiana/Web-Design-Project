@@ -6,21 +6,24 @@
     session_start();
 
     if (!isset($_SESSION['cart'])) {
-        echo 'carrello vuoto';
+        echo 'CARRELLO VUOTO';
     } else {
         $cart = unserialize($_SESSION['cart']);
 
         foreach ($cart->cartList as $item) {
-            echo    "<div class = 'cart-bar'>" .
+            echo    "<div id = 'cart-bar-". $item['name']. "' class = 'cart-bar'>" .
                 "<div class = 'cart-elem'>" . "farmaco:" . $item['name'] . "</div>" .
                 "<div id = 'qt-" . $item['name'] . "' class = 'cart-elem'>" . "" . $item['quantity'] . "</div>" .
                 "<a class = 'button-cart' onclick = updateCart('" . $item['name'] . "',1)  >+</a>" .
                 "<a class = 'button-cart' onclick = updateCart('" . $item['name'] . "',-1) >-</a>" .
                 "</div>";
         }
-
-        echo "<a class = 'text-tag' style = 'background-color: #77dd81;' href = './../backendLogic/putMed.php' >prenota</a>";
-    }
+        
+        if(count($cart->cartList) > 0)
+            echo "<a class = 'text-tag' id = 'prenota' style = 'background-color: #77dd81;' href = './../backendLogic/putMed.php' >prenota</a>";
+        else
+            echo 'CARRELLO VUOTO';
+        }
     
     ?>
 </div>
