@@ -1,5 +1,4 @@
 <?php
-
     // ERRORI SU PERMESSI VARI
     $error_list['err_permessi'] = "Non hai i permessi necessari per accedere a questo contenuto";        
     $error_list['err_carrello_agg'] = "Errore con l'aggiunta del medicinale al carrello";

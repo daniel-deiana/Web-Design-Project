@@ -24,13 +24,12 @@ if (!$_SESSION['username']) {
         <div id='container-main'>
             <?php // require './../templates/leftBar.php' 
             ?>
-            <?php require './../templates/reviewSection.php'; ?>
             <?php require './../templates/medDetails.php' ?>
+
+            <?php require './../templates/reviewSection.php'; ?>
             <?php require './../templates/rightBar.php' ?>
         </div>
-
     </div>
-
 </body>
 
 </html>

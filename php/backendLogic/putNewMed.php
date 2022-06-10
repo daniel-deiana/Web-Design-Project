@@ -19,10 +19,9 @@
 
         print_r($_FILES);
 
-        $uploads_dir = '/uploads';  
         $tmp = basename($_FILES['img']['name']);
 
-        if (move_uploaded_file($_FILES['img']['tmp_name'], "$uploads_dir/$tmp")) {
+        if (move_uploaded_file($_FILES['img']['tmp_name'],"./../../img/".$tmp)) {
             echo "File is valid, and was successfully uploaded.\n";
         } else {
             echo "Upload failed";
