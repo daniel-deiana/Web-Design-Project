@@ -15,6 +15,7 @@ if (!$_SESSION['username']) {
     <title><?php echo $_GET['medName']; ?></title>
     <link rel='stylesheet' href='./../../css/global.css'>
     <script src='./../../js/showMedDetail.js'></script>
+
 </head>
 
 <body>
@@ -27,7 +28,8 @@ if (!$_SESSION['username']) {
                     <?php $_SESSION['med'] = $_GET['medName'] ?>
                     <p>Lascia la tua esperienza con il farmaco</p>
                     <textarea name='reviewText' id='text-block' style=" overflow: scroll;"></textarea>
-                    <input class='box-form' type="submit" value="invia" id='submit'>
+                    <input class='box-form' type='button' value="lascia la tua opinione" id='btn'>
+                    <script src='./../../js/check.js'></script>
                 </form>
             </div>
             <?php require './../templates/rightBar.php' ?>

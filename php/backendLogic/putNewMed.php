@@ -2,7 +2,12 @@
 // inserisce un nuovo medicinale nella lista dei medicinali disponibili in farmacia
 
         require_once 'queryManager.php';
-   
+        require_once 'dbConnections.php';
+
+
+        global $dbConn;
+
+
         session_start();
 
         if ($_SESSION['usrtype'] != 'farmacista') {
@@ -11,10 +16,9 @@
             exit;
         }
 
-        $name = $_POST['nome'];
-        $description = $_POST['descrizione'];
-        $price = $_POST['prezzo'];
-
+        $name =  $dbConn->sanitize_from_injection($_POST['nome']);
+        $description = $dbConn->sanitize_from_injection($_POST['descrizione']);
+        $price = $dbConn->sanitize_from_injection($_POST['prezzo']);
 
         $uploaddir = './';
         $uploadfile = $uploaddir . basename($_FILES['img']['name']);

@@ -435,10 +435,11 @@ textarea {
 #container-err {
 
 
-    padding: 1%;
-    margin: 1%;
+    padding: 4%;
+    margin: 4%;
     border-radius: 20px;
     color: white;
+    font-size: larger;
     background-color: #3e78d5;
     display: flex;
     justify-self: center;
@@ -448,4 +449,13 @@ textarea {
 
 .load-button {
     margin: 30px;
+}
+
+#descr {
+    margin: 4%;
+    padding: 3%;
+    border-radius: 20px;
+    font-size: x-large;
+    color: white;
+    background-color: #3e78d5;
 }

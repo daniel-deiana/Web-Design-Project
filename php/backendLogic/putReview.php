@@ -1,6 +1,9 @@
 <?php   
 
     require_once 'queryManager.php';
+    require_once 'dbConnections.php';
+
+    global $dbConn;
 
     session_start();
 

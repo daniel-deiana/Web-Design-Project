@@ -18,6 +18,8 @@
                 require './../templates/errorSection.php';
             else if (isset($_SESSION['username']))
                 require './../templates/medSection.php';
+            else
+                require './../templates/descrizione.php';
             ?>
             <?php require './../templates/rightBar.php' ?>
         </div>

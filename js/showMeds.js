@@ -1,15 +1,18 @@
 let position = 0
+let page_limit = 1;
+
 
 function requestMeds(direction) {
     // esegue una richiesta asincrona per stampare a schermo i farmaci
-
-
-    // mando avanti il cursore nella lista di elementi
-    position += direction;
-
+    
+    if (page_limit > position || direction == -1)
+        position += direction;
+    
     // se il cursore è negativo resetto a zero
     if (position < 0)
         position = 0;
+    
+    console.log(position);
 
     var xhttp;
     xhttp = new XMLHttpRequest();
@@ -17,7 +20,6 @@ function requestMeds(direction) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             // richiesta pronta ed andata a buon fine 
             //prima chiedo di caricare l'immagine e poi carico tuttto il contenuto
-
             drawMeds(JSON.parse(xhttp.responseText));
         }
     };
@@ -34,6 +36,11 @@ function drawMeds(arrMeds) {
 
     let len = document.getElementsByClassName('card-med');
 
+    if (page_limit < position && arrMeds.length < 4)
+        {
+            page_limit = position + 1;
+        }
+
     const boxes = document.querySelectorAll('.card-med');
 
     boxes.forEach(box => {
@@ -41,6 +48,11 @@ function drawMeds(arrMeds) {
     });
 
     for (let i = 0; i < arrMeds.length; i++) {
+
+        if (arrMeds.length < 4) {
+            // disabilito bottone avanti
+            document.getElementById('')
+        }
 
         // creo il div che contiene la card del farmaco
         let divMed = document.createElement('div');
