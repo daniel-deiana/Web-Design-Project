@@ -203,11 +203,13 @@
         $max_id = SQLconvertObject($queryResult)[0]['ad'];
 
 
-        $path = './../../'.$img_name;
+        $path = './../../img/'.$img_name;
 
         $queryText = "INSERT INTO farmaco(id,nome,image_path,descrizione,prezzo)
         VALUES($max_id+1,\"$name\",\"$path\",\"$desc\",$price);";
         $queryResult = $dbConn->executeQuery($queryText);
+
+        echo "ciao";
 
         $dbConn->close();     
     } 

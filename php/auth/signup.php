@@ -1,13 +1,16 @@
 <?php
     // registration logic for the web app 
 
+    session_start();
+
     require_once './../backendLogic/dbConnections.php';
     require_once './../backendLogic/queryManager.php';
         
     // controlla se l'utente sia gia registrato
-    if (!signupChecker()) {    
+    if (!signupChecker()) {
         // stampo la pagina di user gia esistente ed esco
-        echo 'L\'utente è gia registrato';
+        $_SESSION['err_msg'] = 'err_signup_1';
+        header('location: ./../pages/homePage.php');
         exit;
     }
 
@@ -26,9 +29,16 @@
         $dbConn->close();
         
         if ($result == true)
-            echo 'successo';
+        {
+                header('location: ./../pages/loginPage.php');
+                exit;
+            }   
         else
-            echo 'qualcosa è andato storto';
+            {
+            $_SESSION['err_msg'] = 'err_signup_2';
+            header('location: ./../pages/homePage.php');
+            exit;   
+            }
     }
     else {
 
@@ -66,6 +76,9 @@
         if ($_POST['email'] == "" || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) return false;
         echo 'E-Mail corretta';
         
+        if ($_POST['codfiscale'] == "" || !preg_match("/^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$/",$_POST['codfiscale']))
+            echo 'codice fiscale corretto'
+
         if (strlen($_POST['telefono']) != 10 || !preg_match("/^[0-9]/",$_POST['telefono'])) return false; 
         echo 'Numero di telefono corretto';
         

@@ -7,11 +7,17 @@
     require_once './../backendLogic/queryManager.php';
     
     if (loginChecker()) 
-        return header('location: ./../pages/homePage.php');
-    
-    return header('location: ./../pages/loginPage.php');
-
-    
+        {
+            header('location: ./../pages/homePage.php');
+            exit;
+        }
+    else
+        {
+            $_SESSION['err_msg'] = 'err_login_1';
+            header('location: ./../pages/homePage.php');
+            
+        }
+        
     function loginChecker() {
         
         // check SQLinjection    

@@ -13,7 +13,7 @@
     $med = $_SESSION['med'];
     $_SESSION['med'] = null; 
 
-    if(!checkBookHistory($med, $_SESSION['username'])){
+    if(checkBookHistory($med, $_SESSION['username'])){
         $_SESSION['err_msg'] = 'err_review_1';
         header('location: ./../pages/homePage.php');
         exit;

@@ -19,6 +19,8 @@
                     <input type='text' class='box-form' placeholder='e-mail' name='email'>
                     <p>telefono</p>
                     <input type='text' class='box-form' placeholder='telefono' name='telefono'>
+                    <p>Codice Fiscale</p>
+                    <input type='text' class='box-form' placeholder='codice fiscale' name='codfiscale'>
                     <p>Password</p>
                     <input type='password' class='box-form' placeholder='Password' name='password'>
                     <p>Verifica Password</p>
@@ -29,6 +31,8 @@
             <?php require './../templates/rightBar.php'; ?>
         </div>
     </div>
+
+    <script src='./../../js/checkSignup.js'></script>
 </body>
 
 </html>

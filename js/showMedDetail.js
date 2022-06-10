@@ -55,7 +55,7 @@ function drawMedDetail(medObject) {
 
     // prezzo
     let elemPrice = document.createElement('p');
-    elemPrice.textContent = 'prezzo al pubblico: ' + medObject[0].prezzo+" $";
+    elemPrice.textContent = 'prezzo al pubblico: ' + medObject[0].prezzo+" ";
     elemPrice.className = 'text-tag';
 
     // link per bottone prenota

@@ -13,4 +13,12 @@
     $error_list['err_review_2'] = 'Esiste gia un tuo parere su questo farmaco';
 
     $error_list['err_img_load'] = 'errore caricamento immagine';
+    
+
+
+    $error_list['err_signup_1'] = 'Hai inserito un username relativo ad un utente gia esistente';
+    $error_list['err_signup_2'] = 'Le password non coincidono oppure hai inserito una password troppo piccola (min 8 carattaeri)';
+
+
+    $error_list['err_login_1'] = 'Username non esistente/Hai inserito una password sbagliata';
 ?> 
