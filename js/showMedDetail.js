@@ -47,6 +47,10 @@ function drawMedDetail(medObject) {
     elemDisp.textContent = medObject[0].disponibilita;
     elemDisp.className = 'text-tag'
 
+    // prescrizione
+    elemPrescr = document.createElement('p')
+    elemPrescr.textContent = (medObject[0].prescrizione == 0) ? 'Non richiede prescrizione' : 'Richiede prescrizione';
+    elemPrescr.className = 'text-tag';
 
     // descrizione 
     let elemDescription = document.createElement('p');
@@ -74,9 +78,12 @@ function drawMedDetail(medObject) {
 
     // renderizzo il contenuto sulla pagina  
     container.appendChild(elemName);
+
     container.appendChild(divImage);
+    container.appendChild(elemPrescr);
     container.appendChild(elemDescription);
     container.appendChild(elemPrice);
+
     container.appendChild(aElem);
 
 }
