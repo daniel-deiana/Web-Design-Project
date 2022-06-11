@@ -1,3 +1,8 @@
+/* 
+    codice che carica in maniera dinamica le opinioni degli utenti riguardo un determinato farmaco
+*/
+
+
 function requestReviews(name) {
 
     let xhttp = new XMLHttpRequest();
@@ -9,6 +14,8 @@ function requestReviews(name) {
     xhttp.open("GET", "./../backendLogic/getReviews.php?medName=" + name);
     xhttp.send();
 }
+
+// renderizza il contenuto relativo alle review
 
 function drawReviews(responseArray) {
 

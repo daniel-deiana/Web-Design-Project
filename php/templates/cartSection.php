@@ -1,6 +1,10 @@
 <div class='container-form'>
     <?php
 
+    // sezioone utilizzata per caricare i dati relativi al carrello dei farmaci di un utente 
+
+    
+
     require_once './../backendLogic/cartManager.php';
 
     session_start();

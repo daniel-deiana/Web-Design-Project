@@ -1,7 +1,7 @@
 
 /* 
     effettua una chiamata asincrona al server 
-    per richiedere informazioni dettagliate per un determinato medicinale
+    per richiedere le informazioni per un determinato medicinale
 */
 
 function requestMedDetail(name) {
@@ -55,7 +55,7 @@ function drawMedDetail(medObject) {
 
     // prezzo
     let elemPrice = document.createElement('p');
-    elemPrice.textContent = 'prezzo al pubblico: ' + medObject[0].prezzo+" ";
+    elemPrice.textContent = 'prezzo al pubblico: ' + medObject[0].prezzo +"€";
     elemPrice.className = 'text-tag';
 
     // link per bottone prenota

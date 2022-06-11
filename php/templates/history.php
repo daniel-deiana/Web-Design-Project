@@ -1,5 +1,7 @@
 <?php
 
+    // sezione dove vengono caricati i record relativi alle prenotazioni di un determinato utente
+
     session_start();
 
 

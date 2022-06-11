@@ -1,5 +1,7 @@
 <?php
 
+    // PAGINA DEL CARRELLO DEI FARMACI 
+
 require_once './../inc/errorConst.php';
 session_start();
 

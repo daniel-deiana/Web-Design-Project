@@ -1,4 +1,7 @@
 <?php 
+
+    // PAGINA RELATIVA AD UN DETERMINATO FARMACO
+
     require_once './../backendLogic/cartManager.php';
     require_once './../inc/errorConst.php';
     session_start();

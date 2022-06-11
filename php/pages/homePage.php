@@ -14,6 +14,12 @@
         <div id='container-main'>
             <?php require './../templates/leftBar.php' ?>
             <?php
+
+            // Nella pagina di homepage vengono caricate dei contenuti diversi in base alla situazione
+            // 1 - Se non sono loggato viene caricato il manuale del sito
+            // 2 - Se durante l'utilizzo del sito mi viene ritornato un errore allora carico il messaggio di errore
+            // 3 - carico la sezione contenente il catalogo dei prodotti
+
             if (isset($_SESSION['err_msg']))
                 require './../templates/errorSection.php';
             else if (isset($_SESSION['username']))

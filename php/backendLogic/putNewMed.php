@@ -1,5 +1,5 @@
 <?php
-// inserisce un nuovo medicinale nella lista dei medicinali disponibili in farmacia
+    // inserisce un nuovo medicinale nella lista dei medicinali disponibili in farmacia
 
         require_once 'queryManager.php';
         require_once 'dbConnections.php';

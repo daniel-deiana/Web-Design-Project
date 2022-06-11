@@ -1,5 +1,5 @@
-let position = 0
-let page_limit = 1;
+let position = 0 // posizione corrente all'interno del catalogo
+let page_limit = 1; // page limit è l'indice dell'ultima pagina del catalogo
 
 
 function requestMeds(direction) {
@@ -30,12 +30,21 @@ function requestMeds(direction) {
 
 }
 
+
+    /*
+        Renderizza a schermo i contenuti richiesti dalla requestMeds
+    */
+
+
 function drawMeds(arrMeds) {
-    // prende in ingresso l'array di oggetti json
     var containerElem = document.getElementById('container-med');
 
     let len = document.getElementsByClassName('card-med');
 
+    /*  Dato che ogni volta carico sempre massimo 4 farmaci, se trovo che me ne vengono ritornati meno di 4,
+        quella è l'ultima pagina del catalogo 
+    */
+    
     if (page_limit < position && arrMeds.length < 4)
         {
             page_limit = position + 1;
@@ -43,16 +52,13 @@ function drawMeds(arrMeds) {
 
     const boxes = document.querySelectorAll('.card-med');
 
+    // elimino i div dei farmaci della pagina precedente del catalogo
     boxes.forEach(box => {
         box.remove();
     });
 
-    for (let i = 0; i < arrMeds.length; i++) {
 
-        if (arrMeds.length < 4) {
-            // disabilito bottone avanti
-            document.getElementById('')
-        }
+    for (let i = 0; i < arrMeds.length; i++) {
 
         // creo il div che contiene la card del farmaco
         let divMed = document.createElement('div');

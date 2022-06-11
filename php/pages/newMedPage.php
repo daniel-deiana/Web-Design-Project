@@ -1,5 +1,7 @@
 <?php
 
+    // PAGINA DOVE I FARMACISTI POSSONO INSERIRE NUOVI MEDICINALI NEL CATALOGO
+
     require_once './../inc/errorConst.php';
     session_start();
 

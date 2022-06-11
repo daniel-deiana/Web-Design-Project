@@ -3,6 +3,9 @@
 
 <?php
 
+    // sezione che viene caricata nella homePage in presenza di errori
+    // viene preso dall'array definito in errorConst.php il relativo messaggio di errore e mostrato all'utente
+
     require './../inc/errorConst.php';
 
     session_start();

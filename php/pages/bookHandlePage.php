@@ -1,5 +1,7 @@
 <?php 
 
+    // PAGINA DOVE I FARMACISTI POSSONO CERCARE LE PRENOTAZIONI DEI CLIENTI E MODIFICARNE LO STATO
+
     require_once './../inc/errorConst.php';
     session_start();
 

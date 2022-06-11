@@ -1,6 +1,13 @@
 <?php
 
-    // This file contains all queries used to retrieve/modify data on MySql database
+    /*
+        ============================= QUERY ====================================
+
+        File che contiene tutte le funzioni che effettuano delle query al database del sito
+    
+    */ 
+
+
     require_once './../backendLogic/dbConnections.php';
 
     function idFromMed($med)

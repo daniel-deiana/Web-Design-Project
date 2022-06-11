@@ -1,4 +1,4 @@
-
+// inserisce un nuvoo aricolo nel carrello
 
 function insertCartItem(name, quantity)
 {

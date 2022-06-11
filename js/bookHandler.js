@@ -1,3 +1,14 @@
+/*   
+
+    Codice utilizzato dalla pagina di un farmacista per caricare i dati delle prenotazioni degli utenti
+
+    Viene passato in input il codice della prenotazione e se esiste viene renderizzato a schermo
+    
+    La ricerca della prenotazione viene fatta in maniera dinamica ogni volta che si cambia il valore presente
+    nella casella di input
+*/
+
+
 
 let text_input = document.getElementById('book-search');
 
@@ -13,15 +24,16 @@ text_input.onchange = () => {
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = () => {
         if (xhttp.status == 200 && xhttp.readyState == 4) {
-            drawBookRecords(JSON.parse(xhttp.responseText));
+            drawBookRecord(JSON.parse(xhttp.responseText));
         }
     }
     xhttp.open("GET", './../backendLogic/getBookRecords.php?name='+ text_input.value, true);
     xhttp.send();
 }
 
+// renderizza a schermo la prenotazione cercata dal farmacista
 
-function drawBookRecords(array_book) {
+function drawBookRecord(array_book) {
     
     if (document.getElementById('table-book') != null)
         document.getElementById('table-book').remove();

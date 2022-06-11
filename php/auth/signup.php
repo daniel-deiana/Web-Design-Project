@@ -1,6 +1,4 @@
 <?php
-    // registration logic for the web app 
-
     session_start();
 
     require_once './../backendLogic/dbConnections.php';
@@ -9,12 +7,12 @@
     global $dbConn;
 
     // pulisco input
-    $_POST['username'] = $dbConn->sanitize_from_injection($_POST['username']);
-    $_POST['email'] = $dbConn->sanitize_from_injection($_POST['email']);
-    $_POST['telefono'] = $dbConn->sanitize_from_injection($_POST['telefono']);
-    $_POST['codfiscale'] = $dbConn->sanitize_from_injection($_POST['codfiscale']);
-    $_POST['password'] = $dbConn->sanitize_from_injection($_POST['email']);
-    $_POST['checkPassword'] = $dbConn->sanitize_from_injection($_POST['checkPassword']);
+    $_POST['username'] = $dbConn->filter($_POST['username']);
+    $_POST['email'] = $dbConn->filter($_POST['email']);
+    $_POST['telefono'] = $dbConn->filter($_POST['telefono']);
+    $_POST['codfiscale'] = $dbConn->filter($_POST['codfiscale']);
+    $_POST['password'] = $dbConn->filter($_POST['email']);
+    $_POST['checkPassword'] = $dbConn->filter($_POST['checkPassword']);
         
     // controlla se l'utente sia gia registrato
     if (!signupChecker()) {

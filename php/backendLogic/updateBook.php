@@ -1,5 +1,5 @@
 <?php 
-    // aggiorna i valori 
+    // CODICE CHE AGGIORNA LO STATO DI UNA DETERMINATA PRENOTAZIONE
 
     require_once './queryManager.php';
 

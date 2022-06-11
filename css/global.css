@@ -1,3 +1,11 @@
+
+
+/*
+    Stylesheet dove sono presenti tutte le regole di stile, è stato scelto di non rendere modulare 
+    questa parte dato che è utile avere un unico riferimento per comodita a tutte le regole di stile 
+    definite per il sito
+*/
+
 html {
     height: 100%;
     font-family: 'Avenir';

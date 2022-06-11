@@ -1,11 +1,12 @@
 
 <?php
+        // PAGINA DOVE VIENE CARICATA LA STORIA DELLE PRENOTAZIONI RELATIVE AD UN DETERMINATO UTENTE
 
-            require_once './../inc/errorConst.php';
-            session_start();
+        require_once './../inc/errorConst.php';
+        session_start();
 
-            check_login();
-            check_privilege('cliente');
+        check_login();
+        check_privilege('cliente');
 
 ?>
 <!DOCTYPE html>

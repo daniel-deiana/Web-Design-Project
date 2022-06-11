@@ -1,5 +1,7 @@
 <?php
 
+    // PAGINA DOVE UN UTENTE PUO INSERIRE UNA REVIEW RELATIVAMENTE AD UN FARMACO
+
     require_once './../inc/errorConst.php';
     session_start();
 
@@ -24,7 +26,10 @@
             <?php require './../templates/medDetails.php' ?>
             <div class='container-form'>
                 <form action='./../backendLogic/putReview.php' method='post' id='login'>
-                    <?php $_SESSION['med'] = $_GET['medName'] ?>
+                    <?php
+                        // mi salvo in sezione il nome del farmaco per passarlo alla pagina che dovra effettuare l'inserimento 
+                        $_SESSION['med'] = $_GET['medName'] 
+                    ?>
                     <p>Lascia la tua esperienza con il farmaco</p>
                     <textarea name='reviewText' id='text-block' style=" overflow: scroll;"></textarea>
                     <input class='box-form' type='button' value="lascia la tua opinione" id='btn'>

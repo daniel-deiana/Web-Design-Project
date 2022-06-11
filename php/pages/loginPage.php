@@ -1,8 +1,11 @@
 <?php
 
+    // PAGINA DI LOGIN
+
     require_once './../inc/errorConst.php';
     session_start();
 
+    // se gia loggato, redirect alla homepage
     if(isset($_SESSION['username']))
     {
         header('location: ./../pages/homePage.php');

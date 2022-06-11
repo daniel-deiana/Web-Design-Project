@@ -1,5 +1,7 @@
 <?php
 
+    // PAGINA PER LA REGISTRAZIONE DI NUOVI UTENTI 
+
     session_start();
 
     if(isset($_SESSION['username']))
