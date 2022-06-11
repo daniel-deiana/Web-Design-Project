@@ -24,10 +24,21 @@ function drawBookHistory(response) {
 
     table.id = 'table-history'
     
+
     let r0 = document.createElement('tr');
+    let c00 = document.createElement('th');
+    c00.textContent = 'codice'
+    r0.appendChild(c00);
+
+
     let c = document.createElement('th');
     c.textContent = 'farmaco'
     r0.appendChild(c);
+
+    let p = document.createElement('th');
+    p.textContent = 'quantità'
+    r0.appendChild(p);
+
 
     let c1 = document.createElement('th');
     c1.textContent = 'data prenotazione'
@@ -44,11 +55,21 @@ function drawBookHistory(response) {
         let r = document.createElement('tr');
         table.appendChild(r);
 
+        let cc = document.createElement('td');
+        cc.className = 'elem-table'
+        cc.textContent = response[i].codice
+        r.appendChild(cc);
+
+
         let c1 = document.createElement('td');
         c1.className = 'elem-table'
         c1.textContent = response[i].nome
         r.appendChild(c1);
 
+        let cp = document.createElement('td');
+        cp.className = 'elem-table'
+        cp.textContent = response[i].quantita
+        r.appendChild(cp);
 
         let c2 = document.createElement('td');
         c2.className = 'elem-table'

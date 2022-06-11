@@ -2,6 +2,7 @@
     
     require('./queryManager.php');
 
+
     session_start();
 
     if (!isset($_SESSION['username'])) {
@@ -10,7 +11,9 @@
         exit;
     }
 
-    $medName = $_GET['medName'];
+    global $dbConn;
+
+    $medName = $dbConn->filter($_GET['medName']);
 
     echo json_encode(getMedDetail($medName));
 ?>

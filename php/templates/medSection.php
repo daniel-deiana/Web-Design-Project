@@ -1,4 +1,5 @@
 <div id='container'>
+    <p id='descr'>Catalogo farmaci</p>
     <div id='container-med'>
 
         <script>
@@ -6,8 +7,7 @@
         </script>
     </div>
     <div id='cont-button'>
-        <button class='form-button' class = 'load-button' onclick="requestMeds(-1)">indietro</button>
-        <button class='form-button' class = 'load-button' onclick="requestMeds(1)">avanti</button>
+        <button class='form-button' class='load-button' onclick="requestMeds(-1)">indietro</button>
+        <button class='form-button' class='load-button' onclick="requestMeds(1)">avanti</button>
     </div>
 </div>
-

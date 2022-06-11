@@ -16,6 +16,5 @@
 
     // renderizzo contenuto utente standard
     echo '<a class ="sidebar-elem" href = "./bookHistory.php">storico prenotazioni</a>';
-
     ?>
 </aside>

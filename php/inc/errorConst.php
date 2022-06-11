@@ -1,4 +1,7 @@
 <?php
+
+
+
     // ERRORI SU PERMESSI VARI
     $error_list['err_permessi'] = "Non hai i permessi necessari per accedere a questo contenuto";        
     $error_list['err_carrello_agg'] = "Errore con l'aggiunta del medicinale al carrello";
@@ -6,7 +9,6 @@
     
     // ERRORI PRENOTAZIONE
     $error_list['err_book'] = 'errore nella procedura di prenotazione';     
-    $error_list['err_book_'] = 'errore nella procedura di prenotazione';
 
     // ERRORI REVIEW FARMACI
     $error_list['err_review_1'] = 'Stai provando a lasciare un opinione su un farmaco che non hai ritirato in farmacia';
@@ -18,4 +20,29 @@
     $error_list['err_signup_2'] = 'Le password non coincidono oppure hai inserito una password troppo piccola (min 8 carattaeri)';
 
     $error_list['err_login_1'] = 'Username non esistente/Hai inserito una password sbagliata';
-?> 
+
+    // ERRORI GESTIONE PRENOTAZIONI
+    $error_list['err_handle_book'] = 'Stai provando a modificare una prenotazione non esistente';
+
+    function check_login()
+    {
+        if(!isset($_SESSION['username']))
+        {
+            // se un utente prova ad accedervi quando non è loggato ho un errore
+            $_SESSION['err_msg'] = 'err_not_log';
+            header('location: ./../pages/homePage.php');
+            exit;
+        }
+    }
+
+    function check_privilege($level)
+    {
+        if($_SESSION['usrtype'] != $level)
+        {
+            $_SESSION['err_msg'] = 'err_permessi';
+            header('location: ./../pages/homePage.php');
+            exit;
+        }
+    }
+
+?>

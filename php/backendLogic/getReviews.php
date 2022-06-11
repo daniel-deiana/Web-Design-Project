@@ -11,7 +11,9 @@
     exit;
     }   
 
-    $med = $_GET['medName'];
+  
+    global $dbConn;
+    $med = $dbConn->filter($_GET['medName']);
 
     $response = getReviews($med);
 

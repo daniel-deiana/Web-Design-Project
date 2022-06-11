@@ -2,24 +2,23 @@
 
     require_once 'queryManager.php';
     require_once 'dbConnections.php';
+    session_start();
 
     global $dbConn;
 
-    session_start();
-
     if (!isset($_SESSION['username'])) {
-        echo "ACCESSO NEGATO";
+        $_SESSION['err_msg'] = 'err_permessi';
+        header('location: ./../pages/homePage.php');
         exit;
     }
 
     // sanificare input da injection
-    $review = $_POST['reviewText'];
+    $review = $dbConn->filter($_POST['reviewText']);
 
-
-    $med = $_SESSION['med'];
+    $med = $dbConn->filter($_SESSION['med']);
     $_SESSION['med'] = null; 
 
-    if(checkBookHistory($med, $_SESSION['username'])){
+    if(!checkBookHistory($med, $_SESSION['username'])){
         $_SESSION['err_msg'] = 'err_review_1';
         header('location: ./../pages/homePage.php');
         exit;

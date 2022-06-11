@@ -1,6 +1,6 @@
 <?php
 
-/* 
+    /* 
         questa funzione si occupa di inserire una prenotazione 
         per un medicinale relativamente ad un certo utente
     */
@@ -32,10 +32,7 @@
     }
 
     // mi vado a prendere tutti i farmaci e inserisco nelle prenotazioni dell' utente
-
     $arrayItem = unserialize($_SESSION['cart']);
-
-
 
     if (!$arrayItem->book())
     {

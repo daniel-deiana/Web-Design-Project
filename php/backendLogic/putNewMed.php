@@ -16,9 +16,9 @@
             exit;
         }
 
-        $name =  $dbConn->sanitize_from_injection($_POST['nome']);
-        $description = $dbConn->sanitize_from_injection($_POST['descrizione']);
-        $price = $dbConn->sanitize_from_injection($_POST['prezzo']);
+        $name =  $dbConn->filter($_POST['nome']);
+        $description = $dbConn->filter($_POST['descrizione']);
+        $price = (int)$dbConn->filter($_POST['prezzo']);
 
         $uploaddir = './';
         $uploadfile = $uploaddir . basename($_FILES['img']['name']);

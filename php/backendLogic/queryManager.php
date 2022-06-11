@@ -24,9 +24,6 @@
         return $SQLresult->fetch_all(MYSQLI_ASSOC);
     }
 
-    //funzione che istanzia una sessione per un utente
-    function setupSession() {}
-
     function getMeds($firstID) {
         global $dbConn;
 
@@ -115,7 +112,7 @@
     function getBookHistory($user) {
         global $dbConn;
 
-        $queryText = "  SELECT F.nome, P.stato, P.data  
+        $queryText = "  SELECT P.codice, F.nome, P.stato, P.data ,P.quantita
                         FROM prenotazione P
                         INNER JOIN farmaco F ON F.id = P.farmaco
                         WHERE P.utente = \"{$user}\"
@@ -131,6 +128,8 @@
     function putReview($review,$user,$med) {
 
         global $dbConn; 
+
+        $review = $dbConn->filter($review);
 
         $id = idFromMed($med);
         $data = date('F j, Y, g:i a');
@@ -148,6 +147,8 @@
 
     function getReviews($med) {
         global $dbConn;
+
+
 
         $queryText = "  SELECT R.testo, R.data, R.utente
                         FROM review R
@@ -185,7 +186,8 @@
         $queryText = "      SELECT P.utente FROM prenotazione P
                             INNER JOIN farmaco F ON F.id = P.farmaco
                             WHERE P.utente = \"{$user}\"
-                            AND F.nome = \"{$med}\";
+                            AND F.nome = \"{$med}\"
+                            AND P.stato = 'ritirato';
                         ";
 
         $queryResult = $dbConn->executeQuery($queryText);
@@ -208,8 +210,6 @@
         $queryText = "INSERT INTO farmaco(id,nome,image_path,descrizione,prezzo)
         VALUES($max_id+1,\"$name\",\"$path\",\"$desc\",$price);";
         $queryResult = $dbConn->executeQuery($queryText);
-
-        echo "ciao";
 
         $dbConn->close();     
     } 

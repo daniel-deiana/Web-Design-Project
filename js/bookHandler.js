@@ -3,6 +3,12 @@ let text_input = document.getElementById('book-search');
 
 
 text_input.onchange = () => {
+
+    if (!text_input.value.match(/^[0-9]+$/)) {
+        alert('inserisci un valore numerico')
+        return
+    }
+
     // prendo il contenuto dell'input testuale
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = () => {

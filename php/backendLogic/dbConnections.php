@@ -12,6 +12,15 @@
             $this->openConnection();
         }
 
+
+        function filter($string)
+        {
+            if (!$this->isAlive())
+                $this->openConnection();
+				
+            return $this->dbConnection->real_escape_string($string);
+        }
+
         // connesione al db
         function openConnection()
         {
@@ -54,13 +63,6 @@
             $this->dbConnection = null;
         }
 
-    function sanitize_from_injection($string)
-    {
-        if (!$this->isAlive())
-            $this->openConnection();
-
-        return $this->mysqli_conn->real_escape_string($string);
-    }
 
     }
 ?>

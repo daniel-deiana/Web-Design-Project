@@ -1,13 +1,12 @@
-<?php session_start();
+<?php
 
-if (!$_SESSION['username']) {
-    // non posso accedere a questa pagina se non sono loggato
-    echo 'ACCESSO VIETATO AD UTENTI NON LOGGATI';
-    exit;
-}
+    require_once './../inc/errorConst.php';
+    session_start();
+
+    check_login();
+    check_privilege('cliente');
 
 ?>
-
 <!DOCTYPE html>
 <html>
 

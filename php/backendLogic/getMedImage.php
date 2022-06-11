@@ -6,8 +6,11 @@
     */
 
     require("./queryManager.php");
+    require_once 'dbConnections.php';
 
-    $imageName = $_GET['name'];
+    global $dbConn;
+
+    $imageName = $dbConn->filter($_GET['name']);
     $encodedImage = getMedImage($imageName);
     
     echo $encodedImage;

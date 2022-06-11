@@ -1,12 +1,11 @@
-<?php require_once './../backendLogic/cartManager.php' ?>
-<?php session_start();
+<?php 
+    require_once './../backendLogic/cartManager.php';
+    require_once './../inc/errorConst.php';
+    session_start();
 
-if (!$_SESSION['username']) {
-    // non posso accedere a questa pagina se non sono loggato
-    echo 'ACCESSO VIETATO AD UTENTI NON LOGGATI';
-    exit;
-}
+    check_login();
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +21,7 @@ if (!$_SESSION['username']) {
     <div id='container-page'>
         <?php require './../templates/navbar.php' ?>
         <div id='container-main'>
-            <?php // require './../templates/leftBar.php' 
+            <?php require './../templates/leftBar.php' 
             ?>
             <?php require './../templates/medDetails.php' ?>
 

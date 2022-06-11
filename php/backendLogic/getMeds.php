@@ -12,7 +12,7 @@
         exit;
     }
 
-    $result = getMeds($_GET['start']);
+    $result = getMeds((int)$_GET['start']);
     
     echo json_encode($result);
 ?>

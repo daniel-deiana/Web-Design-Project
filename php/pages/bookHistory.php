@@ -1,3 +1,13 @@
+
+<?php
+
+            require_once './../inc/errorConst.php';
+            session_start();
+
+            check_login();
+            check_privilege('cliente');
+
+?>
 <!DOCTYPE html>
 <html>
 
