@@ -27,7 +27,7 @@ function drawBookHistory(response) {
 
     let r0 = document.createElement('tr');
     let c00 = document.createElement('th');
-    c00.textContent = 'codice'
+    c00.textContent = 'codice prenotazione'
     r0.appendChild(c00);
 
 

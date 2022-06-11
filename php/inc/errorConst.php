@@ -1,6 +1,16 @@
 <?php
 
 
+    // ==================== GESTIONE ERRORI ==========================
+    
+    /*
+        - file dove vengono salvate tutte le associazioni fra codice di errore e messaggio di errore associato
+        
+        
+        - Vengono inoltre definite in questo file delle funzioni di controlli privilegi usate in tutto il sito per garantire
+        che gli utenti ed i farmacisti possano svolgere solamente le operazioni definite in fase di progettazione
+    */
+
 
     // ERRORI SU PERMESSI VARI
     $error_list['err_permessi'] = "Non hai i permessi necessari per accedere a questo contenuto";        
@@ -18,12 +28,14 @@
     
     $error_list['err_signup_1'] = 'Hai inserito un username relativo ad un utente gia esistente';
     $error_list['err_signup_2'] = 'Le password non coincidono oppure hai inserito una password troppo piccola (min 8 carattaeri)';
-
     $error_list['err_login_1'] = 'Username non esistente/Hai inserito una password sbagliata';
 
     // ERRORI GESTIONE PRENOTAZIONI
     $error_list['err_handle_book'] = 'Stai provando a modificare una prenotazione non esistente';
 
+
+
+    // controlla se utente è loggato, se no redirect alla homepage con messaggio di errore
     function check_login()
     {
         if(!isset($_SESSION['username']))
@@ -35,6 +47,7 @@
         }
     }
 
+    // controlla se si hanno i privilegi necessari per accedere ad un contenuto/operazione 
     function check_privilege($level)
     {
         if($_SESSION['usrtype'] != $level)
