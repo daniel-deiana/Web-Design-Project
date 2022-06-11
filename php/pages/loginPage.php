@@ -1,3 +1,14 @@
+<?php
+
+    require_once './../inc/errorConst.php';
+    session_start();
+
+    if(isset($_SESSION['username']))
+    {
+        header('location: ./../pages/homePage.php');
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html>
 

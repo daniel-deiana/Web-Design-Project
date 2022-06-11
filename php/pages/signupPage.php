@@ -7,8 +7,6 @@
         header('location: ./../pages/homePage.php');
         exit;
     }
-
-
 ?>
 <!DOCTYPE html>
 <html>
