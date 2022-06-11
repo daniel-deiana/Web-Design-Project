@@ -57,7 +57,7 @@
     function sanitize_from_injection($string)
     {
         if (!$this->isAlive())
-        $this->openConnection();
+            $this->openConnection();
 
         return $this->mysqli_conn->real_escape_string($string);
     }

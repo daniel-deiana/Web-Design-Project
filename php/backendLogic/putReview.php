@@ -12,7 +12,10 @@
         exit;
     }
 
+    // sanificare input da injection
     $review = $_POST['reviewText'];
+
+
     $med = $_SESSION['med'];
     $_SESSION['med'] = null; 
 

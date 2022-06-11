@@ -2,6 +2,10 @@
 
     require './queryManager.php';
 
+    require_once './dbConnections.php';
+
+    global $dbConn;
+
     session_start();
 
     // controllo permessi
@@ -21,6 +25,7 @@
 
     // mi prendo il nome dell'utente di cui voglio cercare le prenotazioni pendenti
     $name = $_GET['name'];
+    
 
     echo json_encode(getBookRecords($name));
 ?>
