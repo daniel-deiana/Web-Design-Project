@@ -14,25 +14,25 @@
             <div class='container-form'>
                 <form action="./../auth/signup.php" method='post' id='signup'>
                     <p>Username</p>
-                    <input type='text' class='box-form' placeholder='username' name='username'>
+                    <input type='text' class='box-form' placeholder='username' name='username' id = 'username'>
                     <p>e-mail</p>
-                    <input type='text' class='box-form' placeholder='e-mail' name='email'>
+                    <input type='text' class='box-form' placeholder='e-mail' name='email' id = 'email'>
                     <p>telefono</p>
-                    <input type='text' class='box-form' placeholder='telefono' name='telefono'>
+                    <input type='text' class='box-form' placeholder='telefono' name='telefono' id = 'telefono'>
                     <p>Codice Fiscale</p>
-                    <input type='text' class='box-form' placeholder='codice fiscale' name='codfiscale'>
+                    <input type='text' class='box-form' placeholder='codice fiscale' name='codfiscale' id = 'codfiscale'> 
                     <p>Password</p>
-                    <input type='password' class='box-form' placeholder='Password' name='password'>
+                    <input type='password' class='box-form' placeholder='Password' name='password' id = 'password'>
                     <p>Verifica Password</p>
-                    <input type='password' class='box-form' placeholder='Verifica Password' name='checkPassword'>
+                    <input type='password' class='box-form' placeholder='Verifica Password' name='checkPassword' id = 'checkPassword'>
                     <input type='submit' name='registrati' id='submit'>
                 </form>
             </div>
+            <script src='./../../js/signupCheck.js'></script>
             <?php require './../templates/rightBar.php'; ?>
         </div>
     </div>
 
-    <script src='./../../js/checkSignup.js'></script>
 </body>
 
 </html>
