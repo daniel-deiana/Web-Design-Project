@@ -27,10 +27,11 @@
 
         
         $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $tipo = 'cliente';
 
         // Inserisco l'utente sul db
-        $text = "  INSERT INTO utente(username,hashvalue,email,telefono) 
-                        VALUES('{$_POST['username']}','$hash','{$_POST['email']}','{$_POST['telefono']}'); 
+        $text = "  INSERT INTO utente(username,hashvalue,email,telefono,tipo,codice_fiscale) 
+                        VALUES('{$_POST['username']}','$hash','{$_POST['email']}','{$_POST['telefono']}','{$tipo}','{$_POST['codfiscale']}'); 
                     ";
         
         $result = $dbConn->executeQuery($text);
@@ -52,7 +53,7 @@
 
             // valori del form non corretti
 
-            $_SESSION['err_msg'] = 'err_signup_2';
+            $_SESSION['err_msg'] = 'err_signup_3';
             header('location: ./../pages/homePage.php');
             exit;   
 
@@ -83,15 +84,24 @@
     // Esegue un checking dei valori passati in ingresso dall'utente
 
     function signupFormChecker() {  
-        if ($_POST['username'] == "" || !preg_match("/^[A-Za-z ,.'-]/",$_POST['username'])) return false;
-        
-        if ($_POST['email'] == "" || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) return false;
+
+
+
+        if ($_POST['username'] == "" || !preg_match("/^[A-Za-z ,.'-]/",$_POST['username'])) 
+            return false;
+
     
-        if ($_POST['codfiscale'] == "" || !preg_match("/^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$/",$_POST['codfiscale'])) return false;
-        
-        if (strlen($_POST['telefono']) != 10 || !preg_match("/^[0-9]/",$_POST['telefono'])) return false; 
-        
-        if (strlen($_POST['password']) < 8 || $_POST['password'] != $_POST['checkPassword']) return false;
+        if ($_POST['codfiscale'] == "" || !preg_match("/^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$/",$_POST['codfiscale']))
+            return false;
+
+    
+        if (strlen($_POST['telefono']) != 10 || !preg_match("/^[0-9]/",$_POST['telefono']))
+            return false;
+
+        return true;
+
+        if (strlen($_POST['password']) > 7 || ($_POST['password'] != $_POST['checkPassword']))
+            return false;
         
         return true;
     }
