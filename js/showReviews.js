@@ -33,7 +33,6 @@ function drawReviews(responseArray) {
 
     let container = document.getElementById('container-review');
 
-
     if (page_limit < position && responseArray < 2) {
         page_limit = position + 1;
     }
@@ -43,6 +42,11 @@ function drawReviews(responseArray) {
     oldReviews.forEach(rev => {
         rev.remove();
     });
+
+    if (responseArray.length == 0)
+    {
+        
+    }
 
     for (let i = 0; i < responseArray.length; i++) {
 

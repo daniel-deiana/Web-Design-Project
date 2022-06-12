@@ -155,6 +155,7 @@
     function getReviews($med,$position) {
         global $dbConn;
 
+        $init = $position * 2;
         $limit = $position + 2;
 
         $queryText = "  SELECT T.testo,T.data,T.utente
@@ -165,7 +166,7 @@
                             INNER JOIN farmaco F ON F.id = R.farmaco
                             WHERE F.nome = \"$med\"
                         ) AS T
-                        WHERE T.R > $position AND T.R < $limit ;
+                        WHERE T.R > $init AND T.R <= $limit ;
                     ";
 
         $queryResult = $dbConn->executeQuery($queryText);
@@ -208,7 +209,7 @@
         return SQLconvertObject($queryResult);
     }
 
-    function insertNewMed($name,$desc,$price,$img_name) {
+    function insertNewMed($name,$desc,$price,$img_name,$prescrizione) {
         global $dbConn;
 
         $queryText = "SELECT MAX(F.id) as ad FROM farmaco F";
@@ -219,8 +220,8 @@
 
         $path = './../../img/'.$img_name;
 
-        $queryText = "INSERT INTO farmaco(id,nome,image_path,descrizione,prezzo)
-        VALUES($max_id+1,\"$name\",\"$path\",\"$desc\",$price);";
+        $queryText = "INSERT INTO farmaco(id,nome,image_path,descrizione,prezzo,prescrizione)
+        VALUES($max_id+1,\"$name\",\"$path\",\"$desc\",$price,$prescrizione);";
         $queryResult = $dbConn->executeQuery($queryText);
 
         $dbConn->close();     

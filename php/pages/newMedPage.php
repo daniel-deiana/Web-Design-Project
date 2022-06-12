@@ -1,12 +1,12 @@
 <?php
 
-    // PAGINA DOVE I FARMACISTI POSSONO INSERIRE NUOVI MEDICINALI NEL CATALOGO
+// PAGINA DOVE I FARMACISTI POSSONO INSERIRE NUOVI MEDICINALI NEL CATALOGO
 
-    require_once './../inc/errorConst.php';
-    session_start();
+require_once './../inc/errorConst.php';
+session_start();
 
-    check_login();
-    check_privilege('farmacista');
+check_login();
+check_privilege('farmacista');
 
 ?>
 <!DOCTYPE html>
@@ -33,6 +33,11 @@
                     <textarea class='box-form' placeholder='descrizione' name='descrizione'></textarea>
                     <p>prezzo</p>
                     <input type='text' class='box-form' placeholder='prezzo' name='prezzo'>
+                    <p>prescrizione</p>
+                    <select name="prescrizione">
+                        <option value="si">richiesta</option>
+                        <option value="no">non richiesta</option>
+                    </select>
                     <p>immagine</p>
                     <input type='file' class='box-form' name='img'>
                     <input type='submit' class='box-form' name='inserisci nuovo medicinale' id='submit'>

@@ -17,6 +17,9 @@
         $name =  $dbConn->filter($_POST['nome']);
         $description = $dbConn->filter($_POST['descrizione']);
         $price = (int)$dbConn->filter($_POST['prezzo']);
+        $prescrizione = $dbConn->filter($_POST['prescrizione']);
+
+        $value = ($prescrizione == 'si')? 1 : 0;
 
         $uploaddir = './';
         $uploadfile = $uploaddir . basename($_FILES['img']['name']);
@@ -26,7 +29,7 @@
         // controllo tipo file
         $filename = $_FILES['img']['name'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if ($ext !== 'png' || $ext !== 'jpg') {
+        if ($ext !== 'png' && $ext !== 'jpeg') {
             $_SESSION['err_msg'] = 'err_img_type';
             header('location: ./../pages/homePage.php');
             exit;
@@ -42,7 +45,7 @@
 
         // sposto il file nella directory del sito
         if (move_uploaded_file($_FILES['img']['tmp_name'],"./../../img/".$tmp)) {
-            insertNewMed($name, $description, $price, $_FILES['img']['name']);
+            insertNewMed($name, $description, $price, $_FILES['img']['name'],$value);
             header('location: ./../pages/homePage.php');
         
         } else {
