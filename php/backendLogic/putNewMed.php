@@ -14,13 +14,16 @@
             exit;
         }
 
+        // filto da injection
         $name =  $dbConn->filter($_POST['nome']);
         $description = $dbConn->filter($_POST['descrizione']);
         $price = (int)$dbConn->filter($_POST['prezzo']);
         $prescrizione = $dbConn->filter($_POST['prescrizione']);
 
+
         $value = ($prescrizione == 'si')? 1 : 0;
 
+        //  path del file
         $uploaddir = './';
         $uploadfile = $uploaddir . basename($_FILES['img']['name']);
 

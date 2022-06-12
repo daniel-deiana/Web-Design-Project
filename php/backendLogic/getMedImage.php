@@ -7,6 +7,11 @@
 
     require("./queryManager.php");
     require_once 'dbConnections.php';
+    require_once './../inc/errorConst.php';
+
+    check_login();
+
+
 
     global $dbConn;
 

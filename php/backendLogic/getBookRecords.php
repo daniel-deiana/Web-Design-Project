@@ -3,6 +3,7 @@
     require './queryManager.php';
 
     require_once './dbConnections.php';
+require_once './../inc/errorConst.php';
 
     global $dbConn;
 
@@ -10,19 +11,10 @@
 
     // controllo permessi
 
-    if(!isset($_SESSION['username']))
-    {
-        $_SESSION['err_msg'] = 'err_not_log';
-        header('location: ./../pages/homePage.php');
-        exit;
-    }
+    check_login();
 
-    if($_SESSION['usrtype'] != 'farmacista') {
-        $_SESSION['err_msg'] = 'err_permessi';
-        header('location: ./../pages/homePage.php');
-        exit;
-    }
-
+    check_privilege('farmacista');
+    
     // mi prendo il nome dell'utente di cui voglio cercare le prenotazioni pendenti
     $name = $dbConn->filter($_GET['name']);
     

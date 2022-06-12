@@ -1,14 +1,12 @@
 <?php 
     
     require('./queryManager.php');
+    require_once './../inc/errorConst.php';
 
     session_start();
 
-    if (!isset($_SESSION['username'])) {
-        $_SESSION['err_msg'] = 'err_not_log';
-        header('location: ./../pages/homePage.php');
-        exit;
-    }
+    check_login();
+    
 
     global $dbConn;
 

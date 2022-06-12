@@ -67,6 +67,7 @@ function drawMeds(arrMeds) {
         // costruisco il sotto albero del div
         let pMed = document.createElement('p');
         pMed.textContent = arrMeds[i].nome;
+        pMed.style.color = 'black';
         divMed.appendChild(pMed);
 
         // richiedo l'immagine del medicinale 

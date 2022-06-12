@@ -7,16 +7,15 @@
 
     require_once './cartManager.php';
     require_once './dbConnections.php';
+    require_once './../inc/errorConst.php';
 
     session_start();
 
-    if(!isset($_SESSION['username']))
-    {
-        $_SESSION['err_msg'] = 'err_permessi';  
-        header('location: ./../pages/homePage.php');
-        exit;
-    }
+    // controllo utente loggato
+    check_login();
 
+
+    // controllo se esiste il carrello
     if(!isset($_SESSION['cart']))
     {
         $_SESSION['err_msg'] = 'err_book';        
@@ -25,15 +24,12 @@
             
     }
 
-    if($_SESSION['usrtype'] == 'farmacista') {
-        $_SESSION['err_msg'] = 'err_permessi';
-        header('location: ./../pages/homePage.php');
-        exit;
-    }
+    check_privilege('cliente');
 
     // mi vado a prendere tutti i farmaci e inserisco nelle prenotazioni dell' utente
     $arrayItem = unserialize($_SESSION['cart']);
 
+    // errore
     if (!$arrayItem->book())
     {
         $_SESSION['err_msg'] = 'err_book';
@@ -41,6 +37,7 @@
         exit;
     }
 
+    // resetto il carrello
     $_SESSION['cart'] = null;
 
     header('location: ./../pages/cartPage.php')

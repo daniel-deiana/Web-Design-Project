@@ -61,8 +61,7 @@
 
     function signupChecker() {
 
-        global $dbConn;
-        // this function queries the db and checks if the username passed is already existing     
+        global $dbConn; 
         
         $queryText =    "   SELECT username 
                             FROM utente

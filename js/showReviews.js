@@ -45,7 +45,12 @@ function drawReviews(responseArray) {
 
     if (responseArray.length == 0)
     {
-        
+        let divReview = document.createElement('div');
+        divReview.textContent = 'Opinioni non disponibili';
+        divReview.className = 'review';
+        divReview.style.margin = '15px';  
+        container.appendChild(divReview);
+        return;
     }
 
     for (let i = 0; i < responseArray.length; i++) {

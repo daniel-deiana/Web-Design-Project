@@ -14,6 +14,7 @@
         exit;
     }
 
+    // aggiorno lo stato del carrello
     $cart = unserialize($_SESSION['cart']);
     $cart->update($_GET['med'], $_GET['type']);
     $_SESSION['cart'] = serialize($cart);

@@ -21,7 +21,10 @@ doc.append(p);
 elem.onchange = () => {
     let len = elem.value.length;
 
-    p.textContent = 'Caratteri rimanenti: ' + (max - len);
+    if (max - len >= 0)
+        p.textContent = 'Caratteri rimanenti: ' + (max - len);
+    else
+        p.textContent = 'Hai superato il limite massimo di caratteri';
 }
 
 

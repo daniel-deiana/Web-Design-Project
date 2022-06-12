@@ -31,6 +31,7 @@
         return $SQLresult->fetch_all(MYSQLI_ASSOC);
     }
 
+    // prende un sottoinnsieme dei medicinali in catalogo
     function getMeds($firstID) {
         global $dbConn;
 
@@ -116,6 +117,7 @@
         return $queryResult;
     }
 
+    // storia delle prenotazioni per un utente
     function getBookHistory($user) {
         global $dbConn;
 
@@ -132,6 +134,7 @@
         return SQLconvertObject($queryResult);
     }
 
+    // inserisce review del farmaco
     function putReview($review,$user,$med) {
 
         global $dbConn; 
@@ -152,6 +155,7 @@
     }
 
 
+    // prende le review per un certo medicinale, position si utilizza per stampare solamente una parte del result set
     function getReviews($med,$position) {
         global $dbConn;
 
@@ -192,6 +196,7 @@
         return SQLconvertObject($queryResult);
     }
 
+    // controlla che un utente abbia almeno una preenootazione per un farmaco in  stato ritirato
     function checkBookHistory($med,$user) {
         
         global $dbConn;
@@ -209,6 +214,7 @@
         return SQLconvertObject($queryResult);
     }
 
+    // inserisce nuovo medicinale 
     function insertNewMed($name,$desc,$price,$img_name,$prescrizione) {
         global $dbConn;
 
@@ -227,6 +233,7 @@
         $dbConn->close();     
     } 
 
+    // prende una determinata prenotazione con codice [id]
     function getBookRecords($id) {
         global $dbConn;
     
@@ -242,6 +249,7 @@
         return SQLconvertObject($queryResult);
     }
 
+    // aggiornna lo stato della prenotazione di un utente
     function updateBookState($id,$state) {
         
         global $dbConn; 
