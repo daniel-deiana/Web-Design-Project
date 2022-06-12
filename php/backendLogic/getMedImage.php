@@ -9,9 +9,10 @@
     require_once 'dbConnections.php';
     require_once './../inc/errorConst.php';
 
+    session_start();
+
+    //check privilegi
     check_login();
-
-
 
     global $dbConn;
 

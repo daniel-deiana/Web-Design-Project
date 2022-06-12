@@ -1,4 +1,5 @@
 <?php
+    // carica scheda del medicinale;
     session_start();
 
     

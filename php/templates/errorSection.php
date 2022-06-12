@@ -1,6 +1,3 @@
-
-
-
 <?php
 
     // sezione che viene caricata nella homePage in presenza di errori
