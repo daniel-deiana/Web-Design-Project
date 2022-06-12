@@ -4,9 +4,7 @@
         require_once 'queryManager.php';
         require_once 'dbConnections.php';
 
-
         global $dbConn;
-
 
         session_start();
 
@@ -25,6 +23,24 @@
 
         $tmp = basename($_FILES['img']['name']);
 
+        // controllo tipo file
+        $filename = $_FILES['img']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if ($ext !== 'png' || $ext !== 'jpg') {
+            $_SESSION['err_msg'] = 'err_img_type';
+            header('location: ./../pages/homePage.php');
+            exit;
+        }
+
+        // controllo dimensione file
+        if ($_FILES['img']['size'] >= 400000)
+        {
+            $_SESSION['err_msg'] = 'err_img_size';
+            header('location: ./../pages/homePage.php');
+            exit;
+        }
+
+        // sposto il file nella directory del sito
         if (move_uploaded_file($_FILES['img']['tmp_name'],"./../../img/".$tmp)) {
             insertNewMed($name, $description, $price, $_FILES['img']['name']);
             header('location: ./../pages/homePage.php');

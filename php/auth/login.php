@@ -22,10 +22,6 @@
     function loginChecker() {
            
         // controllo sul login di un utente
-
-        $userHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-        
         global $dbConn;
         $queryText = "  SELECT U.*
                         FROM utente U

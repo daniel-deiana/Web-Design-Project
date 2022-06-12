@@ -11,11 +11,12 @@
     exit;
     }   
 
+
   
     global $dbConn;
     $med = $dbConn->filter($_GET['medName']);
 
-    $response = getReviews($med);
+    $response = getReviews($med,$_GET['position']);
 
     echo json_encode($response);
 ?>

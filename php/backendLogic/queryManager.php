@@ -152,15 +152,20 @@
     }
 
 
-    function getReviews($med) {
+    function getReviews($med,$position) {
         global $dbConn;
 
+        $limit = $position + 2;
 
-
-        $queryText = "  SELECT R.testo, R.data, R.utente
-                        FROM review R
-                        INNER JOIN farmaco F ON F.id = R.farmaco
-                        WHERE F.nome = \"$med\";
+        $queryText = "  SELECT T.testo,T.data,T.utente
+                        FROM (
+                            SELECT R.testo, R.data, R.utente, 
+                            ROW_NUMBER() OVER(ORDER BY R.utente) AS R
+                            FROM review R
+                            INNER JOIN farmaco F ON F.id = R.farmaco
+                            WHERE F.nome = \"$med\"
+                        ) AS T
+                        WHERE T.R > $position AND T.R < $limit ;
                     ";
 
         $queryResult = $dbConn->executeQuery($queryText);

@@ -24,7 +24,7 @@
         <div id='container-main'>
             <?php require './../templates/leftBar.php' ?>
             <div class='container-form'>
-                <form action="./../auth/signup.php" method='post' id='signup'>
+                <form action="./../auth/signup.php" method='POST' id='signup'>
                     <p>Username</p>
                     <input type='text' class='box-form' placeholder='username' name='username' id = 'username'>
                     <p>e-mail</p>
@@ -32,11 +32,11 @@
                     <p>telefono</p>
                     <input type='text' class='box-form' placeholder='telefono' name='telefono' id = 'telefono'>
                     <p>Codice Fiscale</p>
-                    <input type='text' class='box-form' placeholder='codice fiscale' name='codfiscale' id = 'codfiscale'> 
+                    <input type='password' class='box-form' placeholder='codice fiscale' name='codfiscale' id = 'codfiscale'> 
                     <p>Password</p>
                     <input type='password' class='box-form' placeholder='Password' name='password' id = 'password'>
                     <p>Verifica Password</p>
-                    <input type='password' class='box-form' placeholder='Verifica Password' name='checkPassword' id = 'checkPassword'>
+                    <input type='text' class='box-form' placeholder='Verifica Password' name='check' id ='checkPassword'>
                     <input type='submit' name='registrati' id='submit'>
                 </form>
             </div>

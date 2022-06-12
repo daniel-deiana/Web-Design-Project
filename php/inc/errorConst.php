@@ -24,7 +24,6 @@
     $error_list['err_review_1'] = 'Stai provando a lasciare un opinione su un farmaco che non hai ritirato in farmacia';
     $error_list['err_review_2'] = 'Esiste gia un tuo parere su questo farmaco';
 
-    $error_list['err_img_load'] = 'errore caricamento immagine';
     
     $error_list['err_signup_1'] = 'Hai inserito un username relativo ad un utente gia esistente';
     $error_list['err_signup_2'] = 'Le password non coincidono oppure hai inserito una password troppo piccola (min 8 carattaeri)';
@@ -35,6 +34,12 @@
 
     // ERRORI GESTIONE PRENOTAZIONI
     $error_list['err_handle_book'] = 'Stai provando a modificare una prenotazione non esistente';
+
+    $error_list['err_img_type'] = 'il file passato non era un immagine, i formati ammessi sono png e jpeg';
+    $error_list['err_img_load'] = 'errore caricamento immagine';
+    $error_list['err_img_size'] = 'immagine troppo grande';
+
+    $error_list['book_update_ok'] = 'Prenotazione aggiornata con successo';
 
 
 

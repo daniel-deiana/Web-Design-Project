@@ -3,7 +3,19 @@
 */
 
 
-function requestReviews(name) {
+let position = 0;
+let page_limit = 1;
+
+function requestReviews(name, direction)
+{
+
+    if (page_limit > position || direction == -1)
+    {
+        position += direction;
+    }
+
+    if (position < 0)
+        position = 0;
 
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = () => {
@@ -11,7 +23,7 @@ function requestReviews(name) {
             drawReviews(JSON.parse(xhttp.responseText));
         }
     }
-    xhttp.open("GET", "./../backendLogic/getReviews.php?medName=" + name);
+    xhttp.open("GET", "./../backendLogic/getReviews.php?medName=" + name +'&position='+position);
     xhttp.send();
 }
 
@@ -20,6 +32,17 @@ function requestReviews(name) {
 function drawReviews(responseArray) {
 
     let container = document.getElementById('container-review');
+
+
+    if (page_limit < position && responseArray < 2) {
+        page_limit = position + 1;
+    }
+
+    let oldReviews = document.querySelectorAll('.review')
+
+    oldReviews.forEach(rev => {
+        rev.remove();
+    });
 
     for (let i = 0; i < responseArray.length; i++) {
 

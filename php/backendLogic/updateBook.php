@@ -22,3 +22,8 @@
 
     // aggiorna lo stato della prenotazione
     echo updateBookState($_POST['codice'],$_POST['stato']);
+
+    $_SESSION['err_msg'] = 'book_update_ok';
+    header('location: ./../pages/homePage.php');
+?>
+

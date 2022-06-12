@@ -11,8 +11,8 @@
     $_POST['email'] = $dbConn->filter($_POST['email']);
     $_POST['telefono'] = $dbConn->filter($_POST['telefono']);
     $_POST['codfiscale'] = $dbConn->filter($_POST['codfiscale']);
-    $_POST['password'] = $dbConn->filter($_POST['email']);
-    $_POST['checkPassword'] = $dbConn->filter($_POST['checkPassword']);
+    $_POST['password'] = $dbConn->filter($_POST['password']);
+    $_POST['check'] = $dbConn->filter($_POST['check']);
         
     // controlla se l'utente sia gia registrato
     if (!signupChecker()) {
@@ -53,8 +53,8 @@
 
             // valori del form non corretti
 
-            $_SESSION['err_msg'] = 'err_signup_3';
-            header('location: ./../pages/homePage.php');
+            // $_SESSION['err_msg'] = 'err_signup_3';
+            // header('location: ./../pages/homePage.php');
             exit;   
 
     }
@@ -90,19 +90,23 @@
         if ($_POST['username'] == "" || !preg_match("/^[A-Za-z ,.'-]/",$_POST['username'])) 
             return false;
 
+        echo 'user ok';
     
         if ($_POST['codfiscale'] == "" || !preg_match("/^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$/",$_POST['codfiscale']))
             return false;
 
+    echo 'cod ok';
     
         if (strlen($_POST['telefono']) != 10 || !preg_match("/^[0-9]/",$_POST['telefono']))
             return false;
 
-        return true;
 
-        if (strlen($_POST['password']) > 7 || ($_POST['password'] != $_POST['checkPassword']))
-            return false;
-        
+    echo 'tel ok';
+
+        if ( (strlen($_POST['password']) < 8) || $_POST['password'] != $_POST['check']) return false;
+
+    echo 'pass ok';
+
         return true;
     }
 ?>

@@ -14,8 +14,8 @@
 
     // sanificare input da injection
     $review = $dbConn->filter($_POST['reviewText']);
-
     $med = $dbConn->filter($_SESSION['med']);
+    
     $_SESSION['med'] = null; 
 
     if(!checkBookHistory($med, $_SESSION['username'])){
